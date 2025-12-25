@@ -1,0 +1,4 @@
+<resources>
+    <color name="intro_background">@color/blue_primary</color>
+    <color name="intro_surface">@color/blue_accent</color>
+</resources>

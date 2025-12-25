@@ -1,0 +1,66 @@
+<resources>
+
+    <string name="app_name">وورد ماستر</string>
+
+    <string name="settings">الإعدادات</string>
+    <string name="streak_days">%1$d يوم</string>
+    <string name="streak_placeholder">0 يوم</string>
+    <string name="review">مراجعة</string>
+    <string name="add_word">إضافة كلمة</string>
+    <string name="no_words_today">لم تتم إضافة كلمات اليوم\nأضف كلمتك الأولى للبدء!</string>
+
+    <string name="add_new_word">إضافة كلمة جديدة</string>
+    <string name="edit_word">تعديل الكلمة</string>
+
+    <string name="label_word">الكلمة</string>
+    <string name="label_meaning">المعاني</string>
+    <string name="label_synonyms">المرادفات</string>
+    <string name="label_antonyms">الأضداد</string>
+    <string name="label_example">استخدام في جملة</string>
+    <string name="label_source">أين تعلمت هذه الكلمة؟ (المصدر)</string>
+
+    <string name="placeholder_word">أدخل الكلمة الجديدة</string>
+    <string name="placeholder_meaning">اكتشاف غير متوقع</string>
+    <string name="placeholder_synonyms">محظوظ، صدفة</string>
+    <string name="placeholder_antonyms">مخطط، متعمد</string>
+    <string name="placeholder_example">استخدم هذه الكلمة في جملة خاصة بك</string>
+
+    <string name="source_book">كتاب</string>
+    <string name="source_article">مقال</string>
+    <string name="source_youtube">يوتيوب</string>
+    <string name="source_conversation">محادثة</string>
+    <string name="source_other">أخرى</string>
+
+    <string name="save_word">حفظ الكلمة</string>
+    <string name="cancel">إلغاء</string>
+
+    <string name="title_settings">الإعدادات</string>
+    <string name="settings_theme">السمة</string>
+    <string name="settings_light_mode">الوضع الفاتح</string>
+    <string name="settings_language">اللغة</string>
+    <string name="settings_about">حول</string>
+    <string name="settings_word_master">وورد ماستر</string>
+
+    <string name="dialog_language_title">اللغة</string>
+    <string name="lang_english">الإنجليزية</string>
+    <string name="lang_urdu">الأردية</string>
+    <string name="lang_hindi">الهندية</string>
+    <string name="lang_arabic">العربية</string>
+
+    <string name="title_quiz">اختبار</string>
+    <string name="quiz_question">ما معنى هذه الكلمة؟</string>
+    <string name="quiz_start">ابدأ الاختبار</string>
+    <string name="quiz_next">التالي</string>
+    <string name="quiz_submit">إرسال</string>
+    <string name="quiz_score">نتيجتك %1$d / %2$d</string>
+
+    <string name="notification_channel_name">تذكير الكلمة اليومية</string>
+    <string name="notification_channel_desc">يذكّرك بإضافة كلمة جديدة كل يوم.</string>
+    <string name="notification_title">أضف كلمة جديدة اليوم</string>
+    <string name="notification_body">حافظ على السلسلة بتعلّم كلمة جديدة.</string>
+    <string name="app_desc">وورد ماستر هو تطبيق ذكي لتعلّم المفردات يساعد المستخدمين على تعلّم ومراجعة الكلمات يوميًا.
+يدعم التطبيق لغات متعددة وتجربة تعلّم مخصصة مع واجهة حديثة وبسيطة لإتقان المفردات بشكل فعّال..</string>
+
+</resources>
+
+

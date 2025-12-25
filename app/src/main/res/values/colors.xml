@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Primary blue palette -->
+    <color name="blue_primary">#1E88E5</color>
+    <color name="blue_primary_dark">#0D47A1</color>
+    <color name="blue_accent">#42A5F5</color>
+
+    <!-- Backgrounds -->
+    <color name="blue_light_bg">#F4F8FD</color>
+    <color name="card_background">#FFFFFFFF</color>
+
+    <!-- Text -->
+    <color name="text_primary">#263238</color>
+    <color name="text_secondary">#607D8B</color>
+    <color name="text_muted">#9E9E9E</color>
+</resources>

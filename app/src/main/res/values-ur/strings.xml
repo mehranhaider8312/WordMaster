@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">ورڈ ماسٹر</string>
+
+    <string name="settings">ترتیبات</string>
+    <string name="streak_days">%1$d دن</string>
+    <string name="streak_placeholder">0 دن</string>
+    <string name="review">جائزہ</string>
+    <string name="add_word">لفظ شامل کریں</string>
+    <string name="no_words_today">آج کوئی لفظ شامل نہیں کیا گیا\nشروع کرنے کے لیے پہلا لفظ شامل کریں!</string>
+
+    <string name="add_new_word">نیا لفظ شامل کریں</string>
+    <string name="edit_word">لفظ میں ترمیم کریں</string>
+
+    <string name="label_word">لفظ</string>
+    <string name="label_meaning">معانی</string>
+    <string name="label_synonyms">ہم معنی الفاظ</string>
+    <string name="label_antonyms">متضاد الفاظ</string>
+    <string name="label_example">جملے میں استعمال</string>
+    <string name="label_source">آپ نے یہ لفظ کہاں سے سیکھا؟ (ماخذ)</string>
+
+    <string name="placeholder_word">نیا لفظ درج کریں</string>
+    <string name="placeholder_meaning">غیر متوقع دریافت</string>
+    <string name="placeholder_synonyms">خوش قسمتی، اتفاق</string>
+    <string name="placeholder_antonyms">منصوبہ بند، ارادی</string>
+    <string name="placeholder_example">اس لفظ کو اپنے جملے میں استعمال کریں</string>
+
+    <string name="source_book">کتاب</string>
+    <string name="source_article">مضمون</string>
+    <string name="source_youtube">یوٹیوب</string>
+    <string name="source_conversation">گفتگو</string>
+    <string name="source_other">دیگر</string>
+
+    <string name="save_word">لفظ محفوظ کریں</string>
+    <string name="cancel">منسوخ کریں</string>
+
+    <string name="title_settings">ترتیبات</string>
+    <string name="settings_theme">تھیم</string>
+    <string name="settings_light_mode">لائٹ موڈ</string>
+    <string name="settings_language">زبان</string>
+    <string name="settings_about">متعلق</string>
+    <string name="settings_word_master">ورڈ ماسٹر</string>
+
+    <string name="dialog_language_title">زبان</string>
+    <string name="lang_english">انگریزی</string>
+    <string name="lang_urdu">اردو</string>
+    <string name="lang_hindi">ہندی</string>
+    <string name="lang_arabic">عربی</string>
+
+    <string name="title_quiz">کوئز</string>
+    <string name="quiz_question">اس لفظ کا کیا مطلب ہے؟</string>
+    <string name="quiz_start">کوئز شروع کریں</string>
+    <string name="quiz_next">اگلا</string>
+    <string name="quiz_submit">جمع کریں</string>
+    <string name="quiz_score">آپ کا اسکور %1$d / %2$d ہے</string>
+
+    <string name="notification_channel_name">روزانہ لفظ کی یاد دہانی</string>
+    <string name="notification_channel_desc">روزانہ نیا لفظ شامل کرنے کی یاد دہانی۔</string>
+    <string name="notification_title">آج نیا لفظ شامل کریں</string>
+    <string name="notification_body">نیا لفظ سیکھ کر اپنی سلسلہ برقرار رکھیں۔</string>
+    <string name="app_desc">ورڈ ماسٹر ایک ذہین الفاظ سیکھنے کی ایپ ہے جو صارفین کو روزانہ الفاظ سیکھنے اور دہرانے میں مدد دیتی ہے۔
+یہ متعدد زبانوں، ذاتی نوعیت کی سیکھنے کی سہولت، اور مؤثر الفاظ سیکھنے کے لیے ایک جدید اور سادہ انٹرفیس فراہم کرتی ہے۔</string>
+
+</resources>

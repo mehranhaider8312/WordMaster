@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dark Mode: True Black Background -->
+    <color name="intro_background">@color/black</color>
+    <color name="intro_surface">@color/black</color>
+    
+    <!-- Primary blue palette - same as light mode -->
+    <color name="blue_primary">#1E88E5</color>
+    <color name="blue_primary_dark">#0D47A1</color>
+    <color name="blue_accent">#42A5F5</color>
+
+    <!-- Backgrounds - True Black for Dark Mode -->
+    <color name="blue_light_bg">#000000</color>
+    <color name="card_background">#000000</color>
+
+    <!-- Text - White for Dark Mode -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#E0E0E0</color>
+    <color name="text_muted">#B0B0B0</color>
+</resources>

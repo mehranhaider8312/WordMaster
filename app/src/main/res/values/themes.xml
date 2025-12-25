@@ -1,0 +1,20 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.WordMaster" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/blue_primary</item>
+        <item name="android:windowOptOutEdgeToEdgeEnforcement" tools:targetApi="35">true</item>
+        <item name="colorPrimaryDark">@color/blue_primary_dark</item>
+        <item name="colorAccent">@color/blue_accent</item>
+
+        <item name="android:navigationBarColor">@color/blue_light_bg</item>
+        <item name="android:statusBarColor">@color/blue_light_bg</item>
+        <item name="android:windowBackground">@color/blue_light_bg</item>
+        <item name="colorSurface">@color/blue_light_bg</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+    </style>
+
+    <style name="Theme.WordMaster" parent="Base.Theme.WordMaster" />
+</resources>
