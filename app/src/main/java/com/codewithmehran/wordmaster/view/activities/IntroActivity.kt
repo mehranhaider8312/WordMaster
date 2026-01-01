@@ -40,7 +40,7 @@ class IntroActivity : AppCompatActivity() {
             com.codewithmehran.wordmaster.view.fragments.IntroFragment.newInstance(
                 "Build Vocabulary",
                 "Learn new words daily and improve your language skills effectively.",
-                R.drawable.logo_app // Assuming logo_app exists as widely used
+                R.drawable.logo_app
             ),
             com.codewithmehran.wordmaster.view.fragments.IntroFragment.newInstance(
                 "Take Quizzes",
@@ -56,11 +56,6 @@ class IntroActivity : AppCompatActivity() {
 
         val adapter = com.codewithmehran.wordmaster.view.adapters.IntroAdapter(this, fragments)
         binding.introViewPager.adapter = adapter
-        
-        // Setup Dots Indicator (Basic implementation or reuse library if available, but for now simple ViewPager callback)
-        // If there was a library like dots indicator it would be easier, but I see indicatorContainer LinearLayout in xml.
-        // I will just implement basic indicator logic or leave empty for now if not strictly requested visual indicator logic by user (user asked for 3 fragments).
-        // I'll implement simple page change callback to change button text on last page.
         
         binding.introViewPager.registerOnPageChangeCallback(object : androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
