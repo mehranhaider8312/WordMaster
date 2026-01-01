@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue_primary"
+    android:fillViewport="true"
+    tools:context=".view.fragments.IntroFragmentTwo">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp">
+
+        <View
+            android:id="@+id/decorStar1"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:alpha="0.15"
+            android:background="@drawable/star_shape"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="20dp" />
+
+        <View
+            android:id="@+id/decorStar2"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:alpha="0.15"
+            android:background="@drawable/star_shape"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="100dp"
+            android:layout_marginEnd="30dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:id="@+id/txtTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/inter_black"
+                android:text="Build Your Streak"
+                android:textColor="@color/white"
+                android:textSize="28sp"
+                android:textAlignment="center"
+                android:letterSpacing="-0.02"
+                android:alpha="0"/>
+
+            <TextView
+                android:id="@+id/txtDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Practice daily and never break the chain"
+                android:textAlignment="center"
+                android:textColor="#E6FFFFFF"
+                android:fontFamily="@font/inter"
+                android:textSize="16sp"
+                android:lineSpacingExtra="4dp"
+                android:alpha="0"
+                android:layout_marginBottom="32dp"/>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardStreak"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white"
+                android:alpha="0">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/txtFireEmoji"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🔥"
+                        android:textSize="64sp"
+                        android:layout_marginBottom="8dp"
+                        android:scaleX="0"
+                        android:scaleY="0"/>
+
+                    <TextView
+                        android:id="@+id/txtStreakCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7 Days"
+                        android:textColor="@color/blue_primary"
+                        android:textSize="32sp"
+                        android:fontFamily="@font/inter_black"
+                        android:alpha="0"/>
+
+                    <TextView
+                        android:id="@+id/txtStreakLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:alpha="0"
+                        android:fontFamily="@font/inter_black"
+                        android:text="Current Streak"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="14sp" />
+
+                    <LinearLayout
+                        android:id="@+id/weeklyCalendar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:layout_marginTop="16dp"
+                        android:alpha="0">
+
+                        <LinearLayout
+                            android:id="@+id/day1"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="4dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="M"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/inter_medium"
+                                android:textColor="@color/text_secondary"/>
+
+                            <View
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_marginTop="4dp"
+                                android:background="@drawable/streak_day_complete"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/day2"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="4dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="T"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/inter_medium"
+                                android:textColor="@color/text_secondary"/>
+
+                            <View
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_marginTop="4dp"
+                                android:background="@drawable/streak_day_complete"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/day3"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="4dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="W"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/inter_medium"
+                                android:textColor="@color/text_secondary"/>
+
+                            <View
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_marginTop="4dp"
+                                android:background="@drawable/streak_day_complete"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/day4"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="4dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="T"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/inter_medium"
+                                android:textColor="@color/text_secondary"/>
+
+                            <View
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_marginTop="4dp"
+                                android:background="@drawable/streak_day_complete"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/day5"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="4dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="F"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/inter_medium"
+                                android:textColor="@color/text_secondary"/>
+
+                            <View
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_marginTop="4dp"
+                                android:background="@drawable/streak_day_complete"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/day6"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="4dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="S"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/inter_medium"
+                                android:textColor="@color/text_secondary"/>
+
+                            <View
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_marginTop="4dp"
+                                android:background="@drawable/streak_day_complete"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/day7"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="4dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/inter_semibold"
+                                android:text="S"
+                                android:textColor="@color/blue_primary"
+                                android:textSize="12sp" />
+
+                            <View
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_marginTop="4dp"
+                                android:background="@drawable/streak_day_complete"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:id="@+id/featuresContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:alpha="0">
+
+                <LinearLayout
+                    android:id="@+id/feature1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="16dp"
+                    android:background="@drawable/feature_card_bg"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        android:id="@+id/iconFeature1"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:text="🔔"
+                        android:textSize="28sp"
+                        android:gravity="center"
+                        android:layout_marginEnd="16dp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/inter"
+                        android:lineSpacingExtra="2dp"
+                        android:text="Daily reminders keep you on track"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/feature2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="16dp"
+                    android:background="@drawable/feature_card_bg"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        android:id="@+id/iconFeature2"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:text="📝"
+                        android:textSize="28sp"
+                        android:gravity="center"
+                        android:layout_marginEnd="16dp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Take quizzes from your saved words"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/inter"
+                        android:textSize="14sp"
+                        android:lineSpacingExtra="2dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/feature3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="16dp"
+                    android:background="@drawable/feature_card_bg">
+
+                    <TextView
+                        android:id="@+id/iconFeature3"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:text="📊"
+                        android:textSize="28sp"
+                        android:gravity="center"
+                        android:layout_marginEnd="16dp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Track your learning progress over time"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/inter"
+                        android:textSize="14sp"
+                        android:lineSpacingExtra="2dp" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

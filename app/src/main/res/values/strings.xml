@@ -53,4 +53,6 @@
     <string name="notification_title">Add a new word today</string>
     <string name="notification_body">Keep your streak alive by learning a new word.</string>
     <string name="app_desc">Word Master is a smart vocabulary-building app that helps\nusers learn and revise words daily through an intuitive and engaging experience.\nIt supports multiple languages,\n personalized learning, and a clean modern interface for effective word mastery.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

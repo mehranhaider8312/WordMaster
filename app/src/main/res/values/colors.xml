@@ -1,19 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Backgrounds -->
+    <color name="background_primary">#FFFFFF</color>
+    <color name="background_secondary">#F8F9FA</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
 
     <!-- Primary blue palette -->
     <color name="blue_primary">#1E88E5</color>
     <color name="blue_primary_dark">#0D47A1</color>
     <color name="blue_accent">#42A5F5</color>
+    <color name="blue_light">#E3F2FD</color>
 
-    <!-- Backgrounds -->
-    <color name="blue_light_bg">#F4F8FD</color>
-    <color name="card_background">#FFFFFFFF</color>
+    <!-- Semantic colors for learning -->
+    <color name="success_green">#4CAF50</color>
+    <color name="success_light">#E8F5E9</color>
+    <color name="error_red">#EF5350</color>
+    <color name="error_light">#FFEBEE</color>
+    <color name="warning_orange">#FF9800</color>
+    <color name="warning_light">#FFF3E0</color>
+
+    <!-- Progress/Status colors -->
+    <color name="mastered">#4CAF50</color>
+    <color name="learning">#FF9800</color>
+    <color name="new_word">#2196F3</color>
+    <color name="difficult">#EF5350</color>
 
     <!-- Text -->
-    <color name="text_primary">#263238</color>
-    <color name="text_secondary">#607D8B</color>
+    <color name="text_primary">#ffffff</color>
+    <color name="text_secondary">#757575</color>
     <color name="text_muted">#9E9E9E</color>
+    <color name="text_disabled">#BDBDBD</color>
+
+    <!-- Accent colors for categories -->
+    <color name="category_purple">#9C27B0</color>
+    <color name="category_teal">#009688</color>
+    <color name="category_indigo">#3F51B5</color>
 </resources>
