@@ -48,13 +48,15 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
 
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.8.7")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.10.0")
 
     implementation("androidx.recyclerview:recyclerview:1.4.0")
 
     implementation("androidx.work:work-runtime-ktx:2.10.0")
 
-    implementation("com.google.android.gms:play-services-ads:23.6.0")
+    implementation("com.google.android.gms:play-services-ads:24.8.0")
+    // https://mvnrepository.com/artifact/com.airbnb.android/lottie
+    implementation("com.airbnb.android:lottie:6.7.1")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

@@ -16,20 +16,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WordMaster">
-
+        <activity
+            android:name=".view.activities.WordDetailsActivity"
+            android:exported="false" />
         <activity
             android:name=".view.activities.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".view.activities.IntroActivity"
-            android:exported="false"/>
-
+            android:exported="false" />
         <activity
             android:name=".view.activities.MainActivity"
             android:exported="false" />
@@ -37,7 +38,7 @@
             android:name=".view.activities.AddWordActivity"
             android:exported="false" />
         <activity
-            android:name=".view.activities.QuizActivity"
+            android:name=".view.activities.ReviewActivity"
             android:exported="false" />
         <activity
             android:name=".view.activities.SettingsActivity"
@@ -49,7 +50,6 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-3940256099942544~3347511713" />

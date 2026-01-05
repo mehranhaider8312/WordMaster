@@ -16,13 +16,22 @@ class WordViewModel(private val repository: WordRepository) : ViewModel() {
     private val _words = MutableLiveData<List<Word>>()
     val words: LiveData<List<Word>> = _words
 
+    private val _filteredWords = MutableLiveData<List<Word>>()
+    val filteredWords: LiveData<List<Word>> = _filteredWords
+
     private val _selectedWord = MutableLiveData<Word?>()
     val selectedWord: LiveData<Word?> = _selectedWord
+
+    init {
+        // Initialize filteredWords with empty list
+        _filteredWords.value = emptyList()
+    }
 
     fun loadWords() {
         viewModelScope.launch(Dispatchers.IO) {
             val allWords = repository.getAllWords()
             _words.postValue(allWords)
+            _filteredWords.postValue(allWords) // Also update filtered words
         }
     }
 
@@ -80,6 +89,42 @@ class WordViewModel(private val repository: WordRepository) : ViewModel() {
             onComplete()
         }
     }
+
+    // New method for filtering words based on search query
+    fun filterWords(query: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            val currentList = _words.value ?: emptyList()
+
+            if (query.isEmpty()) {
+                _filteredWords.postValue(currentList)
+            } else {
+                val filtered = currentList.filter { word ->
+                    word.word.contains(query, ignoreCase = true) ||
+                            word.meaning.contains(query, ignoreCase = true) ||
+                            word.synonyms.contains(query, ignoreCase = true) ||
+                            word.antonyms.contains(query, ignoreCase = true) ||
+                            word.exampleSentence.contains(query, ignoreCase = true)
+                }
+                _filteredWords.postValue(filtered)
+            }
+        }
+    }
+
+    // New method to delete a word
+    fun deleteWord(word: Word) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteWord(word)
+            loadWords()
+        }
+    }
+
+    // New method to update word object directly (for adapter)
+    fun updateWord(word: Word) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.updateWord(word)
+            loadWords()
+        }
+    }
 }
 
 class WordViewModelFactory(
@@ -93,5 +138,3 @@ class WordViewModelFactory(
         throw IllegalArgumentException("Unknown ViewModel class")
     }
 }
-
-

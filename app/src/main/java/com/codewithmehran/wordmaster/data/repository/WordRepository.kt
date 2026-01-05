@@ -13,6 +13,10 @@ class WordRepository(private val wordDao: WordDao) {
         return wordDao.update(word)
     }
 
+    suspend fun deleteWord(word: Word): Int {
+        return wordDao.delete(word)
+    }
+
     suspend fun getAllWords(): List<Word> {
         return wordDao.getAllWords()
     }
@@ -25,5 +29,3 @@ class WordRepository(private val wordDao: WordDao) {
         return wordDao.getWordById(id)
     }
 }
-
-

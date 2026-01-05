@@ -3,75 +3,121 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:padding="16dp">
 
     <TextView
         android:id="@+id/txtWord"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-        android:textColor="@color/text_primary"
+        android:text="Word"
+        android:textSize="32sp"
+        android:textColor="#1A1A1A"
+        android:fontFamily="sans-serif-black"
+        android:letterSpacing="-0.02"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Word" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txtMeaning"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-        android:textColor="@color/text_secondary"
+        android:text="Meaning of the word"
+        android:textSize="16sp"
+        android:textColor="#424242"
+        android:fontFamily="sans-serif"
+        android:lineSpacingExtra="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtWord"
-        tools:text="Meaning" />
+        app:layout_constraintTop_toBottomOf="@id/txtWord" />
 
-    <TextView
-        android:id="@+id/txtSynonymsLabel"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnListen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Synonyms"
-        android:textColor="@color/text_muted"
-        android:textStyle="bold"
+        android:layout_marginTop="24dp"
+        android:text="Listen"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        android:fontFamily="sans-serif-medium"
+        android:paddingStart="28dp"
+        android:paddingEnd="28dp"
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp"
+        android:textAllCaps="false"
+        app:icon="@drawable/ic_volume"
+        app:iconTint="#FFFFFF"
+        app:iconGravity="textStart"
+        app:iconPadding="10dp"
+        app:cornerRadius="24dp"
+        app:backgroundTint="#5E35B1"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtMeaning" />
 
-    <TextView
-        android:id="@+id/txtSynonyms"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:textColor="@color/text_secondary"
-        app:layout_constraintBottom_toBottomOf="@id/txtSynonymsLabel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/txtSynonymsLabel"
-        tools:text="Word that are similar" />
-
-    <TextView
-        android:id="@+id/txtAntonymsLabel"
+    <LinearLayout
+        android:id="@+id/buttonsContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Antonyms"
-        android:textColor="@color/text_muted"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtSynonymsLabel" />
-
-    <TextView
-        android:id="@+id/txtAntonyms"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:textColor="@color/text_secondary"
-        app:layout_constraintBottom_toBottomOf="@id/txtAntonymsLabel"
+        android:orientation="vertical"
+        android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/txtAntonymsLabel"
-        tools:text="" />
+        app:layout_constraintTop_toBottomOf="@id/txtMeaning">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnMeaning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Meaning"
+            android:textColor="#FFFFFF"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="15sp"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:textAllCaps="false"
+            app:cornerRadius="20dp"
+            app:backgroundTint="#2196F3"
+            app:elevation="2dp"
+            android:layout_marginBottom="12dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSynonym"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Synonym"
+            android:textColor="#FFFFFF"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="15sp"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:textAllCaps="false"
+            app:cornerRadius="20dp"
+            app:backgroundTint="#2196F3"
+            app:elevation="2dp"
+            android:layout_marginBottom="12dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAntonym"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Antonym"
+            android:textColor="#FFFFFF"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="15sp"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:textAllCaps="false"
+            app:cornerRadius="20dp"
+            app:backgroundTint="#2196F3"
+            app:elevation="2dp" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-

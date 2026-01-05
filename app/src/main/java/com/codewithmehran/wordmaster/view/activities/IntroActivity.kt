@@ -7,7 +7,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.codewithmehran.wordmaster.databinding.ActivityIntroBinding
-import com.codewithmehran.wordmaster.view.adapters.IntroAdapter
+import com.codewithmehran.wordmaster.adapters.IntroAdapter
 import com.codewithmehran.wordmaster.view.fragments.IntroFragmentOne
 import com.codewithmehran.wordmaster.view.fragments.IntroFragmentTwo
 import com.codewithmehran.wordmaster.view.fragments.IntroFragmentThree

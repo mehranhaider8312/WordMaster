@@ -43,6 +43,15 @@ class WordDao(context: Context) {
         )
     }
 
+    fun delete(word: Word): Int {
+        val db = dbHelper.writableDatabase
+        return db.delete(
+            VocabularyTables.TABLE_WORDS,
+            "${VocabularyTables.COL_WORD_ID} = ?",
+            arrayOf(word.id.toString())
+        )
+    }
+
     fun getAllWords(): List<Word> {
         val db = dbHelper.readableDatabase
         val cursor = db.rawQuery(
@@ -107,5 +116,3 @@ class WordDao(context: Context) {
         )
     }
 }
-
-

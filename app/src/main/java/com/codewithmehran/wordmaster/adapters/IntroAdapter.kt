@@ -1,4 +1,4 @@
-package com.codewithmehran.wordmaster.view.adapters
+package com.codewithmehran.wordmaster.adapters
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
