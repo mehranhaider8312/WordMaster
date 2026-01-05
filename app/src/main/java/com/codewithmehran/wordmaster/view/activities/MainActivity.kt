@@ -1,13 +1,20 @@
 package com.codewithmehran.wordmaster.view.activities
 
+import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.PopupMenu
+import android.widget.PopupWindow
+import android.widget.TextView
 import androidx.activity.addCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -94,7 +101,7 @@ class MainActivity : BaseAdActivity() {
     private fun setupClicks() {
         binding.btnMenu.setOnClickListener {
             trackClick()
-            showMenuPopup()
+            showCustomMenuPopup()
         }
 
         binding.btnAddWord.setOnClickListener {
@@ -108,23 +115,49 @@ class MainActivity : BaseAdActivity() {
         }
     }
 
-    private fun showMenuPopup() {
-        val popup = PopupMenu(this, binding.btnMenu)
-        popup.menuInflater.inflate(R.menu.main_menu, popup.menu)
-        popup.setOnMenuItemClickListener { item ->
-            when (item.itemId) {
-                R.id.menu_about -> {
-                    startActivity(Intent(this, AboutActivity::class.java))
-                    true
-                }
-                R.id.menu_settings -> {
-                    startActivity(Intent(this, SettingsActivity::class.java))
-                    true
-                }
-                else -> false
-            }
+    private fun showCustomMenuPopup() {
+        val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val popupView = inflater.inflate(R.layout.custom_popup_menu, null)
+
+        val popupWindow = PopupWindow(
+            popupView,
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            true
+        )
+        popupWindow.setBackgroundDrawable(
+            ContextCompat.getDrawable(this, R.drawable.popup_background)
+        )
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            popupWindow.elevation = 10f
+            popupWindow.animationStyle = R.style.PopupAnimation
         }
-        popup.show()
+
+        val aboutButton = popupView.findViewById<TextView>(R.id.btn_about)
+        val settingsButton = popupView.findViewById<TextView>(R.id.btn_settings)
+
+        val rippleDrawable = ContextCompat.getDrawable(this, R.drawable.menu_item_ripple)
+        aboutButton.background = rippleDrawable
+        settingsButton.background = rippleDrawable
+
+        aboutButton.setOnClickListener {
+            startActivity(Intent(this, AboutActivity::class.java))
+            popupWindow.dismiss()
+        }
+
+        settingsButton.setOnClickListener {
+            startActivity(Intent(this, SettingsActivity::class.java))
+            popupWindow.dismiss()
+        }
+
+        popupWindow.showAsDropDown(
+            binding.btnMenu,
+            -popupView.measuredWidth + binding.btnMenu.width, // Align to right
+            0
+        )
+
+        popupWindow.setOnDismissListener {  }
     }
 
     private fun showAddWordDialog() {
