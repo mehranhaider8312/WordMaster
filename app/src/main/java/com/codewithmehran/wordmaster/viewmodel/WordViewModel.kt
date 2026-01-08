@@ -23,7 +23,6 @@ class WordViewModel(private val repository: WordRepository) : ViewModel() {
     val selectedWord: LiveData<Word?> = _selectedWord
 
     init {
-        // Initialize filteredWords with empty list
         _filteredWords.value = emptyList()
     }
 
@@ -31,7 +30,7 @@ class WordViewModel(private val repository: WordRepository) : ViewModel() {
         viewModelScope.launch(Dispatchers.IO) {
             val allWords = repository.getAllWords()
             _words.postValue(allWords)
-            _filteredWords.postValue(allWords) // Also update filtered words
+            _filteredWords.postValue(allWords)
         }
     }
 
@@ -48,6 +47,7 @@ class WordViewModel(private val repository: WordRepository) : ViewModel() {
         synonyms: String,
         antonyms: String,
         exampleSentence: String,
+        source: String,
         onComplete: () -> Unit
     ) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -57,10 +57,13 @@ class WordViewModel(private val repository: WordRepository) : ViewModel() {
                 synonyms = synonyms.trim(),
                 antonyms = antonyms.trim(),
                 exampleSentence = exampleSentence.trim(),
+                source = source.trim(),
                 dateAdded = Date()
             )
             repository.addWord(word)
-            loadWords()
+            val allWords = repository.getAllWords()
+            _words.postValue(allWords)
+            _filteredWords.postValue(allWords)
             onComplete()
         }
     }
@@ -72,6 +75,7 @@ class WordViewModel(private val repository: WordRepository) : ViewModel() {
         synonyms: String,
         antonyms: String,
         exampleSentence: String,
+        source: String,
         onComplete: () -> Unit
     ) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -82,6 +86,7 @@ class WordViewModel(private val repository: WordRepository) : ViewModel() {
                 synonyms = synonyms.trim(),
                 antonyms = antonyms.trim(),
                 exampleSentence = exampleSentence.trim(),
+                source = source.trim(),
                 dateAdded = Date()
             )
             repository.updateWord(updated)
@@ -90,7 +95,6 @@ class WordViewModel(private val repository: WordRepository) : ViewModel() {
         }
     }
 
-    // New method for filtering words based on search query
     fun filterWords(query: String) {
         viewModelScope.launch(Dispatchers.IO) {
             val currentList = _words.value ?: emptyList()
@@ -103,14 +107,14 @@ class WordViewModel(private val repository: WordRepository) : ViewModel() {
                             word.meaning.contains(query, ignoreCase = true) ||
                             word.synonyms.contains(query, ignoreCase = true) ||
                             word.antonyms.contains(query, ignoreCase = true) ||
-                            word.exampleSentence.contains(query, ignoreCase = true)
+                            word.exampleSentence.contains(query, ignoreCase = true) ||
+                            word.source.contains(query, ignoreCase = true)
                 }
                 _filteredWords.postValue(filtered)
             }
         }
     }
 
-    // New method to delete a word
     fun deleteWord(word: Word) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.deleteWord(word)
@@ -118,7 +122,6 @@ class WordViewModel(private val repository: WordRepository) : ViewModel() {
         }
     }
 
-    // New method to update word object directly (for adapter)
     fun updateWord(word: Word) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.updateWord(word)

@@ -5,7 +5,7 @@
     android:id="@+id/rootMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue_accent"
+    android:background="@color/blue_light"
     tools:context=".view.activities.MainActivity">
 
     <ImageView
@@ -15,12 +15,12 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="menu"
         android:padding="12dp"
-        android:src="@drawable/menu"
+        android:src="@drawable/ic_ellipse"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
-        app:tint="@color/white" />
+        app:tint="@color/blue_primary" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/txtStreak"
@@ -32,6 +32,7 @@
         android:text="@string/streak_placeholder"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:textColor="@color/blue_primary"
         app:icon="@drawable/ic_fire"
         app:iconTintMode="src_atop"
         app:iconTint="@null"
@@ -44,31 +45,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.cardview.widget.CardView
+    <FrameLayout
         android:id="@+id/cardContainer"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="24dp"
-        app:cardCornerRadius="24dp"
-        app:cardElevation="6dp"
-        app:cardUseCompatPadding="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/groupButtons"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtStreak">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerWords"
+        <com.yalantis.library.Koloda
+            android:id="@+id/swipeAbleCardView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clipToPadding="false"
-            android:padding="24dp"
-            tools:listitem="@layout/item_word_card" />
-
-    </androidx.cardview.widget.CardView>
+            android:layout_height="match_parent"
+            app:koloda_card_layout="@layout/item_word_card"
+            app:koloda_card_scale_diff="0.04"
+            app:koloda_card_offsetY="16dp"
+            app:koloda_card_rotate_angle="15"
+            app:koloda_max_visible_cards="9"/>
+    </FrameLayout>
 
     <LinearLayout
         android:id="@+id/emptyStateContainer"
@@ -76,19 +73,36 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@id/groupButtons"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtStreak">
+
+        <ImageView
+            android:id="@+id/ivReloadWords"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_gravity="end"
+            android:src="@drawable/ic_refresh"
+            app:tint="@color/blue_primary_dark"/>
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lottieEmptyState"
             android:layout_width="200dp"
             android:layout_height="200dp"
             app:lottie_rawRes="@raw/loading_cat"
-            app:lottie_autoPlay="true"
+            app:lottie_autoPlay="false"
             app:lottie_loop="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reload or Add Some Words"
+            android:gravity="center"
+            android:textColor="@color/blue_primary"
+            android:textSize="16sp"
+            android:fontFamily="@font/inter_semibold"/>
 
     </LinearLayout>
 

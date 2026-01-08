@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.google.gms.google.services)
+    alias(libs.plugins.google.firebase.crashlytics)
 }
 
 android {
@@ -57,6 +59,11 @@ dependencies {
     implementation("com.google.android.gms:play-services-ads:24.8.0")
     // https://mvnrepository.com/artifact/com.airbnb.android/lottie
     implementation("com.airbnb.android:lottie:6.7.1")
+
+    implementation ("com.github.Yalantis:Koloda-Android:v0.0.2-alpha"){
+        exclude("com.android.support")
+    }
+    implementation(libs.firebase.crashlytics)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

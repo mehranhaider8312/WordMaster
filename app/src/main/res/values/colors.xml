@@ -36,4 +36,29 @@
     <color name="category_purple">#9C27B0</color>
     <color name="category_teal">#009688</color>
     <color name="category_indigo">#3F51B5</color>
+
+    <!-- Option Colors -->
+    <color name="option_default">#F5F5F5</color>
+    <color name="option_correct">#E8F5E9</color>
+    <color name="option_wrong">#FFEBEE</color>
+
+    <!-- Stroke Colors -->
+    <color name="stroke_correct">#9C4DCC</color>
+    <color name="stroke_wrong">#999999</color>
+
+    <!-- Icon Colors -->
+    <color name="icon_correct">#9C4DCC</color>
+    <color name="icon_wrong">#999999</color>
+
+    <!-- Result Card Colors -->
+    <color name="result_correct_bg">#E8D5F2</color>
+    <color name="result_correct_icon">#9C4DCC</color>
+    <color name="result_correct_text">#9C4DCC</color>
+
+    <color name="result_wrong_bg">#F5F5F5</color>
+    <color name="result_wrong_icon">#999999</color>
+    <color name="result_wrong_text">#999999</color>
+
+    <color name="chip_background_checked">@color/blue_primary</color>
+    <color name="chip_background_unchecked">@android:color/white</color>
 </resources>

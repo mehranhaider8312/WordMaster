@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/intro_background"
+    android:background="@color/blue_light"
     tools:context=".view.activities.IntroActivity">
 
     <com.google.android.material.textview.MaterialTextView

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/blue_accent"
+    android:background="@color/blue_light"
     tools:context=".view.activities.ReviewActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
@@ -15,9 +15,9 @@
         android:background="@android:color/transparent"
         android:elevation="0dp"
         app:title="Your Library"
-        app:titleTextColor="@color/text_primary"
+        app:titleTextColor="@color/blue_primary"
         app:navigationIcon="@drawable/arrow_back"
-        app:navigationIconTint="@color/white"/>
+        app:navigationIconTint="@color/blue_primary"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,7 +29,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="12dp"
-            app:cardElevation="0dp"
+            app:cardElevation="3dp"
+            app:strokeWidth="0dp"
             android:backgroundTint="@android:color/white">
 
             <LinearLayout
@@ -43,7 +44,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@android:drawable/ic_menu_search"
-                    app:tint="#9E9E9E" />
+                    app:tint="@color/text_muted" />
 
                 <EditText
                     android:id="@+id/searchEditText"
@@ -53,8 +54,8 @@
                     android:layout_marginStart="12dp"
                     android:background="@null"
                     android:hint="Search words..."
-                    android:textColor="@android:color/black"
-                    android:textColorHint="#9E9E9E"
+                    android:textColor="@color/blue_primary"
+                    android:textColorHint="@color/text_muted"
                     android:textSize="16sp" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -73,7 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="No words found"
-            android:textColor="#9E9E9E"
+            android:textColor="@color/text_muted"
             android:textSize="16sp"
             android:visibility="gone" />
     </LinearLayout>

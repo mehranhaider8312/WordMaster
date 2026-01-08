@@ -35,9 +35,6 @@
             android:name=".view.activities.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".view.activities.AddWordActivity"
-            android:exported="false" />
-        <activity
             android:name=".view.activities.ReviewActivity"
             android:exported="false" />
         <activity

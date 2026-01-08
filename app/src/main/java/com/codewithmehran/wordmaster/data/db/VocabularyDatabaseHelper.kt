@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
 private const val DATABASE_NAME = "vocabulary.db"
-private const val DATABASE_VERSION = 1
+private const val DATABASE_VERSION = 2
 
 object VocabularyTables {
     const val TABLE_WORDS = "words"
@@ -15,6 +15,7 @@ object VocabularyTables {
     const val COL_SYNONYMS = "synonyms"
     const val COL_ANTONYMS = "antonyms"
     const val COL_EXAMPLE = "example_sentence"
+    const val COL_SOURCE = "source"
     const val COL_DATE_ADDED = "dateAdded"
 
     const val TABLE_STREAK = "streak"
@@ -42,6 +43,7 @@ class VocabularyDatabaseHelper(context: Context) :
                 ${VocabularyTables.COL_SYNONYMS} TEXT NOT NULL,
                 ${VocabularyTables.COL_ANTONYMS} TEXT NOT NULL,
                 ${VocabularyTables.COL_EXAMPLE} TEXT NOT NULL,
+                ${VocabularyTables.COL_SOURCE} TEXT NOT NULL DEFAULT '',
                 ${VocabularyTables.COL_DATE_ADDED} INTEGER NOT NULL
             )
             """.trimIndent()
@@ -78,8 +80,8 @@ class VocabularyDatabaseHelper(context: Context) :
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-        // Handle schema migrations when needed
+        if (oldVersion < 2) {
+            db.execSQL("ALTER TABLE ${VocabularyTables.TABLE_WORDS} ADD COLUMN ${VocabularyTables.COL_SOURCE} TEXT NOT NULL DEFAULT ''")
+        }
     }
 }
-
-

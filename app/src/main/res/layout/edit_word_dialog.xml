@@ -21,6 +21,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/blue_light"
             android:padding="0dp">
 
             <LinearLayout
@@ -75,129 +76,165 @@
                     android:orientation="vertical"
                     android:padding="24dp">
 
-                    <com.google.android.material.textfield.TextInputLayout
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        app:boxStrokeColor="@color/blue_primary"
-                        app:endIconMode="clear_text"
-                        app:endIconTint="@color/blue_primary"
-                        app:startIconDrawable="@drawable/ic_word"
-                        app:startIconTint="@color/blue_primary">
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/edittext_border"
+                        android:padding="12dp">
 
-                        <com.google.android.material.textfield.TextInputEditText
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginEnd="12dp"
+                            android:src="@drawable/ic_word"
+                            app:tint="@color/blue_primary" />
+
+                        <EditText
                             android:id="@+id/inputWord"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:inputType="textCapWords"
                             android:maxLines="1"
                             android:hint="Word"
                             android:textColor="@color/blue_primary"
-                            android:textColorHint="@color/blue_primary_dark"
-                            android:textSize="18sp" />
-                    </com.google.android.material.textfield.TextInputLayout>
+                            android:textColorHint="@android:color/black"
+                            android:textSize="18sp"
+                            android:background="@android:color/transparent"
+                            android:padding="0dp" />
+                    </LinearLayout>
 
-                    <com.google.android.material.textfield.TextInputLayout
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:hint="Meaning"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        app:boxStrokeColor="@color/blue_primary"
-                        app:endIconMode="clear_text"
-                        app:endIconTint="@color/blue_primary"
-                        app:hintTextColor="@color/blue_primary"
-                        app:startIconDrawable="@drawable/ic_meaning"
-                        app:startIconTint="@color/blue_primary">
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/edittext_border"
+                        android:padding="12dp"
+                        android:layout_marginTop="20dp">
 
-                        <com.google.android.material.textfield.TextInputEditText
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginEnd="12dp"
+                            android:src="@drawable/ic_meaning"
+                            app:tint="@color/blue_primary" />
+
+                        <EditText
                             android:id="@+id/inputMeaning"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:inputType="textMultiLine"
                             android:maxLines="3"
+                            android:hint="Meaning"
                             android:textColor="@color/blue_primary"
-                            android:textColorHint="@color/blue_primary_dark"
-                            android:textSize="16sp" />
-                    </com.google.android.material.textfield.TextInputLayout>
+                            android:textColorHint="@android:color/black"
+                            android:textSize="16sp"
+                            android:background="@android:color/transparent"
+                            android:padding="0dp" />
+                    </LinearLayout>
 
-                    <com.google.android.material.textfield.TextInputLayout
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:hint="Synonyms (comma separated)"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        app:boxStrokeColor="@color/blue_primary"
-                        app:endIconMode="clear_text"
-                        app:endIconTint="@color/blue_primary"
-                        app:hintTextColor="@color/blue_primary"
-                        app:startIconDrawable="@drawable/ic_synonym"
-                        app:startIconTint="@color/blue_primary">
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/edittext_border"
+                        android:padding="12dp"
+                        android:layout_marginTop="20dp">
 
-                        <com.google.android.material.textfield.TextInputEditText
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginEnd="12dp"
+                            android:src="@drawable/ic_synonym"
+                            app:tint="@color/blue_primary" />
+
+                        <EditText
                             android:id="@+id/inputSynonyms"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:inputType="textMultiLine"
                             android:maxLines="2"
+                            android:hint="Synonyms (comma separated)"
                             android:textColor="@color/blue_primary"
-                            android:textColorHint="@color/blue_primary_dark"
-                            android:textSize="16sp" />
-                    </com.google.android.material.textfield.TextInputLayout>
+                            android:textColorHint="@android:color/black"
+                            android:textSize="16sp"
+                            android:background="@android:color/transparent"
+                            android:padding="0dp" />
+                    </LinearLayout>
 
-                    <com.google.android.material.textfield.TextInputLayout
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:hint="Antonyms (comma separated)"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        app:boxStrokeColor="@color/blue_primary"
-                        app:endIconMode="clear_text"
-                        app:endIconTint="@color/blue_primary"
-                        app:hintTextColor="@color/blue_primary"
-                        app:startIconDrawable="@drawable/ic_antonym"
-                        app:startIconTint="@color/blue_primary">
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/edittext_border"
+                        android:padding="12dp"
+                        android:layout_marginTop="20dp">
 
-                        <com.google.android.material.textfield.TextInputEditText
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginEnd="12dp"
+                            android:src="@drawable/ic_antonym"
+                            app:tint="@color/blue_primary" />
+
+                        <EditText
                             android:id="@+id/inputAntonyms"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:inputType="textMultiLine"
                             android:maxLines="2"
+                            android:hint="Antonyms (comma separated)"
                             android:textColor="@color/blue_primary"
-                            android:textColorHint="@color/blue_primary_dark"
-                            android:textSize="16sp" />
-                    </com.google.android.material.textfield.TextInputLayout>
+                            android:textColorHint="@android:color/black"
+                            android:textSize="16sp"
+                            android:background="@android:color/transparent"
+                            android:padding="0dp" />
+                    </LinearLayout>
 
-                    <com.google.android.material.textfield.TextInputLayout
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:hint="Example Sentence (optional)"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        app:boxStrokeColor="@color/blue_primary"
-                        app:endIconMode="clear_text"
-                        app:endIconTint="@color/blue_primary"
-                        app:hintTextColor="@color/blue_primary"
-                        app:startIconDrawable="@drawable/ic_example"
-                        app:startIconTint="@color/blue_primary">
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/edittext_border"
+                        android:padding="12dp"
+                        android:layout_marginTop="20dp">
 
-                        <com.google.android.material.textfield.TextInputEditText
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginEnd="12dp"
+                            android:src="@drawable/ic_example"
+                            app:tint="@color/blue_primary" />
+
+                        <EditText
                             android:id="@+id/inputExample"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:inputType="textMultiLine"
                             android:maxLines="3"
+                            android:hint="Example Sentence (optional)"
                             android:textColor="@color/blue_primary"
-                            android:textColorHint="@color/blue_primary_dark"
-                            android:textSize="16sp" />
-                    </com.google.android.material.textfield.TextInputLayout>
+                            android:textColorHint="@android:color/black"
+                            android:textSize="16sp"
+                            android:background="@android:color/transparent"
+                            android:padding="0dp" />
+                    </LinearLayout>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="30dp"
-                        android:text="✏️ Editing Tips:"
+                        android:text="Where did you learn this word?"
                         android:textColor="@color/blue_accent"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -205,11 +242,80 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="• Update any field to improve your vocabulary\n• Separate synonyms and antonyms with commas\n• Example sentence helps with better understanding"
+                        android:layout_marginTop="4dp"
+                        android:text="Choose source"
                         android:textColor="@color/text_secondary"
-                        android:textSize="14sp"
-                        android:lineSpacingExtra="4dp" />
+                        android:textSize="14sp" />
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chipGroupSource"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        app:singleSelection="true"
+                        app:chipSpacingHorizontal="8dp"
+                        app:chipSpacingVertical="8dp">
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipBook"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Book"
+                            app:chipIcon="@drawable/ic_book"
+                            app:chipIconTint="@color/blue_primary"
+                            app:chipBackgroundColor="@color/blue_accent"
+                            app:chipStrokeColor="@color/blue_primary"
+                            app:chipStrokeWidth="1dp" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipArticle"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Article"
+                            app:chipIcon="@drawable/ic_article"
+                            app:chipIconTint="@color/blue_primary"
+                            app:chipBackgroundColor="@color/blue_accent"
+                            app:chipStrokeColor="@color/blue_primary"
+                            app:chipStrokeWidth="1dp" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipYoutube"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="YouTube"
+                            app:chipIcon="@drawable/ic_youtube"
+                            app:chipIconTint="@color/blue_primary"
+                            app:chipBackgroundColor="@color/blue_accent"
+                            app:chipStrokeColor="@color/blue_primary"
+                            app:chipStrokeWidth="1dp" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipConversation"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Conversation"
+                            app:chipIcon="@drawable/ic_conversation"
+                            app:chipIconTint="@color/blue_primary"
+                            app:chipBackgroundColor="@color/blue_accent"
+                            app:chipStrokeColor="@color/blue_primary"
+                            app:chipStrokeWidth="1dp" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipOther"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Other"
+                            app:chipIconTint="@color/blue_primary"
+                            app:chipBackgroundColor="@color/blue_accent"
+                            app:chipStrokeColor="@color/blue_primary"
+                            app:chipStrokeWidth="1dp" />
+
+                    </com.google.android.material.chip.ChipGroup>
 
                 </LinearLayout>
             </ScrollView>
@@ -255,6 +361,7 @@
                     android:textColor="@android:color/white" />
 
             </LinearLayout>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

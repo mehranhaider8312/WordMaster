@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue_primary">
+    android:background="@color/blue_light">
 
     <TextView
         android:id="@+id/txtFloatingWord1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Learn"
-        android:textColor="#2042A5F5"
+        android:textColor="#30448AFF"
         android:textSize="32sp"
         android:fontFamily="sans-serif-medium"
         android:alpha="0"
@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Grow"
-        android:textColor="#2042A5F5"
+        android:textColor="#30448AFF"
         android:textSize="28sp"
         android:fontFamily="sans-serif-light"
         android:alpha="0"
@@ -38,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Master"
-        android:textColor="#2042A5F5"
+        android:textColor="#30448AFF"
         android:textSize="30sp"
         android:fontFamily="sans-serif-medium"
         android:alpha="0"
@@ -52,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Achieve"
-        android:textColor="#2042A5F5"
+        android:textColor="#30448AFF"
         android:textSize="26sp"
         android:fontFamily="sans-serif-light"
         android:alpha="0"
@@ -71,17 +71,26 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.4">
 
-        <ImageView
-            android:id="@+id/imgLogo"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:src="@drawable/logo_app"
-            android:contentDescription="@string/app_name"
-            android:scaleX="0"
-            android:scaleY="0"
+        <androidx.cardview.widget.CardView
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            app:cardCornerRadius="70dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="@color/blue_primary"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageView
+                android:id="@+id/imgLogo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="30dp"
+                android:src="@drawable/logo_app"
+                android:contentDescription="@string/app_name"
+                android:scaleX="0"
+                android:scaleY="0" />
+        </androidx.cardview.widget.CardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -91,7 +100,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="@string/app_name"
-        android:textColor="@color/white"
+        android:textColor="@color/blue_primary"
         android:textSize="32sp"
         android:fontFamily="sans-serif-black"
         android:letterSpacing="0.05"
@@ -106,7 +115,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Expand Your Vocabulary"
-        android:textColor="#B3FFFFFF"
+        android:textColor="@color/text_secondary"
         android:textSize="14sp"
         android:fontFamily="sans-serif-light"
         android:letterSpacing="0.1"
@@ -124,9 +133,9 @@
         android:layout_marginEnd="40dp"
         android:alpha="0"
         android:translationY="50dp"
-        app:cardBackgroundColor="#1AFFFFFF"
+        app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="12dp"
-        app:cardElevation="0dp"
+        app:cardElevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtTagline">
@@ -142,7 +151,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Eloquent"
-                android:textColor="@color/white"
+                android:textColor="@color/blue_primary"
                 android:textSize="20sp"
                 android:fontFamily="sans-serif-medium" />
 
@@ -152,7 +161,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="Fluent or persuasive in speaking"
-                android:textColor="#CCFFFFFF"
+                android:textColor="@color/text_secondary"
                 android:textSize="13sp"
                 android:fontFamily="sans-serif" />
 
@@ -165,7 +174,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:indeterminateTint="@color/white"
+        android:indeterminateTint="@color/blue_primary"
         android:alpha="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

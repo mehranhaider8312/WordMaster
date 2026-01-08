@@ -6,7 +6,8 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="12dp"
     app:cardCornerRadius="12dp"
-    app:cardElevation="2dp"
+    app:cardElevation="3dp"
+    app:strokeWidth="0dp"
     android:backgroundTint="@android:color/white">
 
     <LinearLayout
@@ -26,7 +27,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_marginStart="12dp"
+                android:layout_marginStart="4dp"
                 android:layout_marginEnd="12dp"
                 android:orientation="vertical">
 
@@ -34,9 +35,9 @@
                     android:id="@+id/txtWord"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/blue_primary"
                     android:textSize="18sp"
-                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-black"
                     tools:text="Word" />
 
                 <TextView
@@ -44,7 +45,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:textColor="#757575"
+                    android:textColor="@color/text_secondary"
                     android:textSize="14sp"
                     tools:text="Meaning" />
             </LinearLayout>
@@ -61,7 +62,7 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:src="@drawable/edit"
                     android:contentDescription="Edit"
-                    app:tint="@color/blue_primary_dark" />
+                    app:tint="@color/blue_primary" />
 
                 <ImageButton
                     android:id="@+id/btnDelete"
@@ -71,7 +72,7 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:src="@drawable/delete_forever"
                     android:contentDescription="Delete"
-                    app:tint="#EF5350" />
+                    app:tint="@color/error_red" />
             </LinearLayout>
 
         </LinearLayout>
@@ -83,24 +84,26 @@
             android:orientation="vertical"
             android:visibility="gone"
             android:padding="16dp"
-            android:paddingTop="0dp">
+            android:paddingTop="0dp"
+            android:background="#F8F9FA">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:text="Meaning:"
-                android:textColor="@color/blue_primary_dark"
+                android:textColor="@color/blue_primary"
                 android:textSize="14sp"
-                android:textStyle="bold" />
+                android:fontFamily="sans-serif-medium" />
 
             <TextView
                 android:id="@+id/txtFullMeaning"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:textColor="#666666"
+                android:textColor="@color/text_secondary"
                 android:textSize="14sp"
+                android:lineSpacingExtra="2dp"
                 tools:text="The occurrence of events by chance in a happy way." />
 
             <TextView
@@ -108,16 +111,16 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:text="Synonyms:"
-                android:textColor="@color/blue_primary_dark"
+                android:textColor="@color/blue_primary"
                 android:textSize="14sp"
-                android:textStyle="bold" />
+                android:fontFamily="sans-serif-medium" />
 
             <TextView
                 android:id="@+id/txtSynonyms"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:textColor="#666666"
+                android:textColor="@color/text_secondary"
                 android:textSize="14sp"
                 tools:text="fluke, chance, coincidence" />
 
@@ -126,16 +129,16 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:text="Antonyms:"
-                android:textColor="@color/blue_primary_dark"
+                android:textColor="@color/blue_primary"
                 android:textSize="14sp"
-                android:textStyle="bold" />
+                android:fontFamily="sans-serif-medium" />
 
             <TextView
                 android:id="@+id/txtAntonyms"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:textColor="#666666"
+                android:textColor="@color/text_secondary"
                 android:textSize="14sp"
                 tools:text="misfortune, bad luck" />
 
@@ -144,15 +147,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:text="Example Sentence:"
-                android:textColor="@color/blue_primary_dark"
+                android:textColor="@color/blue_primary"
                 android:textSize="14sp"
-                android:textStyle="bold" />
+                android:fontFamily="sans-serif-medium" />
 
             <TextView
                 android:id="@+id/txtExampleSentence"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#666666"
+                android:textColor="@color/text_secondary"
                 android:textSize="14sp"
                 android:fontStyle="italic"
                 android:lineSpacingExtra="2dp"
@@ -162,8 +165,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Long press any card to expand/collapse"
-                android:textColor="#999999"
+                android:text="Press any card to expand/collapse"
+                android:textColor="@color/text_muted"
                 android:textSize="12sp"
                 android:textAlignment="center" />
 

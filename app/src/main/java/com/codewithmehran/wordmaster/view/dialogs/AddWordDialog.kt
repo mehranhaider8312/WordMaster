@@ -12,7 +12,7 @@ import com.codewithmehran.wordmaster.databinding.AddWordDialogBinding
 
 class AddWordDialog(
     context: Context,
-    private val onSaveWord: (String, String, String, String, String) -> Unit
+    private val onSaveWord: (String, String, String, String, String, String) -> Unit
 ) : Dialog(context) {
 
     private lateinit var binding: AddWordDialogBinding
@@ -44,6 +44,7 @@ class AddWordDialog(
             binding.inputSynonyms.text?.clear()
             binding.inputAntonyms.text?.clear()
             binding.inputExample.text?.clear()
+            binding.chipGroupSource.clearCheck()
 
             Toast.makeText(context, "All fields cleared", Toast.LENGTH_SHORT).show()
         }
@@ -66,12 +67,13 @@ class AddWordDialog(
             val synonyms = binding.inputSynonyms.text.toString().trim()
             val antonyms = binding.inputAntonyms.text.toString().trim()
             val example = binding.inputExample.text.toString().trim()
+            val source = getSelectedSource()
 
             if (validateInputs(word, meaning, synonyms, antonyms)) {
                 val scaleAnimation = AnimationUtils.loadAnimation(context, R.anim.scale_in)
                 binding.btnSave.startAnimation(scaleAnimation)
 
-                onSaveWord(word, meaning, synonyms, antonyms, example)
+                onSaveWord(word, meaning, synonyms, antonyms, example, source)
 
                 dismissWithAnimation()
 
@@ -88,6 +90,17 @@ class AddWordDialog(
         }
 
         binding.dialogContainer.setOnClickListener {
+        }
+    }
+
+    private fun getSelectedSource(): String {
+        return when (binding.chipGroupSource.checkedChipId) {
+            R.id.chipBook -> "Book"
+            R.id.chipArticle -> "Article"
+            R.id.chipYoutube -> "YouTube"
+            R.id.chipConversation -> "Conversation"
+            R.id.chipOther -> "Other"
+            else -> ""
         }
     }
 

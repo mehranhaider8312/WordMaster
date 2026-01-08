@@ -9,7 +9,6 @@ data class Word(
     val synonyms: String,
     val antonyms: String,
     val exampleSentence: String,
+    val source: String = "",
     val dateAdded: Date
 )
-
-

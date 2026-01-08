@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue_primary"
+    android:background="@color/blue_light"
     android:fillViewport="true"
     tools:context=".view.fragments.IntroFragmentTwo">
 
@@ -17,7 +17,7 @@
             android:id="@+id/decorStar1"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:alpha="0.15"
+            android:alpha="0.25"
             android:background="@drawable/star_shape"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -28,7 +28,7 @@
             android:id="@+id/decorStar2"
             android:layout_width="45dp"
             android:layout_height="45dp"
-            android:alpha="0.15"
+            android:alpha="0.25"
             android:background="@drawable/star_shape"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -52,7 +52,7 @@
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/inter_black"
                 android:text="Build Your Streak"
-                android:textColor="@color/white"
+                android:textColor="@color/blue_primary"
                 android:textSize="28sp"
                 android:textAlignment="center"
                 android:letterSpacing="-0.02"
@@ -64,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:text="Practice daily and never break the chain"
                 android:textAlignment="center"
-                android:textColor="#E6FFFFFF"
+                android:textColor="@color/text_secondary"
                 android:fontFamily="@font/inter"
                 android:textSize="16sp"
                 android:lineSpacingExtra="4dp"
@@ -335,7 +335,7 @@
                         android:fontFamily="@font/inter"
                         android:lineSpacingExtra="2dp"
                         android:text="Daily reminders keep you on track"
-                        android:textColor="@color/white"
+                        android:textColor="@color/blue_primary"
                         android:textSize="14sp" />
 
                 </LinearLayout>
@@ -364,7 +364,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Take quizzes from your saved words"
-                        android:textColor="@color/white"
+                        android:textColor="@color/blue_primary"
                         android:fontFamily="@font/inter"
                         android:textSize="14sp"
                         android:lineSpacingExtra="2dp" />
@@ -394,7 +394,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Track your learning progress over time"
-                        android:textColor="@color/white"
+                        android:textColor="@color/blue_primary"
                         android:fontFamily="@font/inter"
                         android:textSize="14sp"
                         android:lineSpacingExtra="2dp" />

@@ -15,18 +15,13 @@
         <item name="android:navigationBarColor">@color/black</item>
         <item name="android:statusBarColor">@color/black</item>
 
-        <!-- White Text -->
-        <item name="android:textColorPrimary">@color/white</item>
-        <item name="android:textColorSecondary">@color/white</item>
+        <item name="android:textColorPrimary">@color/blue_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
         <item name="colorOnSurface">@color/white</item>
         <item name="colorOnBackground">@color/white</item>
-        
-        <!-- Card & Surface Colors - Ensure they are black too, unless specific card contrast is desired, 
-             but user said "All screen backgrounds must be pure black". 
-             Material3 Cards usually have a surface tint. We might need to override card styling. -->
+
         <item name="cardBackgroundColor">@color/black</item>
 
-        <!-- Button Style Override -->
         <item name="materialButtonStyle">@style/Widget.WordMaster.Button</item>
     </style>
     

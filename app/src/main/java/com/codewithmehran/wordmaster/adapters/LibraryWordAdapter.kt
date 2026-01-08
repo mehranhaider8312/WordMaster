@@ -1,6 +1,5 @@
 package com.codewithmehran.wordmaster.adapters
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -8,7 +7,6 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.codewithmehran.wordmaster.databinding.ItemLibraryWordBinding
 import com.codewithmehran.wordmaster.model.Word
-import com.codewithmehran.wordmaster.view.activities.WordDetailsActivity
 
 class LibraryWordAdapter(
     private val onEditClick: (Word) -> Unit,
@@ -59,7 +57,9 @@ class LibraryWordAdapter(
                 onDeleteClick(word)
             }
 
-            binding.root.setOnLongClickListener {
+//            binding.root.setOnLongClickListener {   }
+
+            binding.root.setOnClickListener {
                 val previousExpanded = expandedPosition
                 expandedPosition = if (isExpanded) -1 else bindingAdapterPosition
 
@@ -69,14 +69,6 @@ class LibraryWordAdapter(
                 notifyItemChanged(bindingAdapterPosition)
 
                 true
-            }
-
-            binding.root.setOnClickListener {
-                val context = binding.root.context
-                val intent = Intent(context, WordDetailsActivity::class.java).apply {
-                    putExtra("WORD_ID", word.id)
-                }
-                context.startActivity(intent)
             }
         }
     }

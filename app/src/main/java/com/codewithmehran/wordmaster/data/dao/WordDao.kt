@@ -20,6 +20,7 @@ class WordDao(context: Context) {
             put(VocabularyTables.COL_SYNONYMS, word.synonyms)
             put(VocabularyTables.COL_ANTONYMS, word.antonyms)
             put(VocabularyTables.COL_EXAMPLE, word.exampleSentence)
+            put(VocabularyTables.COL_SOURCE, word.source)
             put(VocabularyTables.COL_DATE_ADDED, word.dateAdded.time)
         }
         return db.insert(VocabularyTables.TABLE_WORDS, null, values)
@@ -33,6 +34,7 @@ class WordDao(context: Context) {
             put(VocabularyTables.COL_SYNONYMS, word.synonyms)
             put(VocabularyTables.COL_ANTONYMS, word.antonyms)
             put(VocabularyTables.COL_EXAMPLE, word.exampleSentence)
+            put(VocabularyTables.COL_SOURCE, word.source)
             put(VocabularyTables.COL_DATE_ADDED, word.dateAdded.time)
         }
         return db.update(
@@ -90,20 +92,14 @@ class WordDao(context: Context) {
     }
 
     private fun mapWord(cursor: Cursor): Word {
-        val id =
-            cursor.getLong(cursor.getColumnIndexOrThrow(VocabularyTables.COL_WORD_ID))
-        val word =
-            cursor.getString(cursor.getColumnIndexOrThrow(VocabularyTables.COL_WORD))
-        val meaning =
-            cursor.getString(cursor.getColumnIndexOrThrow(VocabularyTables.COL_MEANING))
-        val synonyms =
-            cursor.getString(cursor.getColumnIndexOrThrow(VocabularyTables.COL_SYNONYMS))
-        val antonyms =
-            cursor.getString(cursor.getColumnIndexOrThrow(VocabularyTables.COL_ANTONYMS))
-        val example =
-            cursor.getString(cursor.getColumnIndexOrThrow(VocabularyTables.COL_EXAMPLE))
-        val dateAddedMillis =
-            cursor.getLong(cursor.getColumnIndexOrThrow(VocabularyTables.COL_DATE_ADDED))
+        val id = cursor.getLong(cursor.getColumnIndexOrThrow(VocabularyTables.COL_WORD_ID))
+        val word = cursor.getString(cursor.getColumnIndexOrThrow(VocabularyTables.COL_WORD))
+        val meaning = cursor.getString(cursor.getColumnIndexOrThrow(VocabularyTables.COL_MEANING))
+        val synonyms = cursor.getString(cursor.getColumnIndexOrThrow(VocabularyTables.COL_SYNONYMS))
+        val antonyms = cursor.getString(cursor.getColumnIndexOrThrow(VocabularyTables.COL_ANTONYMS))
+        val example = cursor.getString(cursor.getColumnIndexOrThrow(VocabularyTables.COL_EXAMPLE))
+        val source = cursor.getString(cursor.getColumnIndexOrThrow(VocabularyTables.COL_SOURCE))
+        val dateAddedMillis = cursor.getLong(cursor.getColumnIndexOrThrow(VocabularyTables.COL_DATE_ADDED))
 
         return Word(
             id = id,
@@ -112,6 +108,7 @@ class WordDao(context: Context) {
             synonyms = synonyms,
             antonyms = antonyms,
             exampleSentence = example,
+            source = source,
             dateAdded = Date(dateAddedMillis)
         )
     }
