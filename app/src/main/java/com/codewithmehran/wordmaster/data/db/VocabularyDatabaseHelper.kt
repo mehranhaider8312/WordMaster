@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
 private const val DATABASE_NAME = "vocabulary.db"
-private const val DATABASE_VERSION = 2
+private const val DATABASE_VERSION = 3
 
 object VocabularyTables {
     const val TABLE_WORDS = "words"
@@ -49,6 +49,18 @@ class VocabularyDatabaseHelper(context: Context) :
             """.trimIndent()
         )
 
+        // Insert permanent system word
+        val systemWordValues = android.content.ContentValues().apply {
+            put(VocabularyTables.COL_WORD, "SYSTEM_WORD")
+            put(VocabularyTables.COL_MEANING, "SYSTEM_WORD")
+            put(VocabularyTables.COL_SYNONYMS, "SYSTEM_WORD")
+            put(VocabularyTables.COL_ANTONYMS, "SYSTEM_WORD")
+            put(VocabularyTables.COL_EXAMPLE, "SYSTEM_WORD")
+            put(VocabularyTables.COL_SOURCE, "SYSTEM")
+            put(VocabularyTables.COL_DATE_ADDED, Long.MAX_VALUE)
+        }
+        db.insert(VocabularyTables.TABLE_WORDS, null, systemWordValues)
+
         db.execSQL(
             """
             CREATE TABLE ${VocabularyTables.TABLE_STREAK} (
@@ -82,6 +94,19 @@ class VocabularyDatabaseHelper(context: Context) :
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
         if (oldVersion < 2) {
             db.execSQL("ALTER TABLE ${VocabularyTables.TABLE_WORDS} ADD COLUMN ${VocabularyTables.COL_SOURCE} TEXT NOT NULL DEFAULT ''")
+        }
+        
+        if (oldVersion < 3) {
+            val systemWordValues = android.content.ContentValues().apply {
+                put(VocabularyTables.COL_WORD, "SYSTEM_WORD")
+                put(VocabularyTables.COL_MEANING, "SYSTEM_WORD")
+                put(VocabularyTables.COL_SYNONYMS, "SYSTEM_WORD")
+                put(VocabularyTables.COL_ANTONYMS, "SYSTEM_WORD")
+                put(VocabularyTables.COL_EXAMPLE, "SYSTEM_WORD")
+                put(VocabularyTables.COL_SOURCE, "SYSTEM")
+                put(VocabularyTables.COL_DATE_ADDED, Long.MAX_VALUE)
+            }
+            db.insert(VocabularyTables.TABLE_WORDS, null, systemWordValues)
         }
     }
 }

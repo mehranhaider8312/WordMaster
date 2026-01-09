@@ -6,58 +6,119 @@
     <string name="streak_placeholder">0 دن</string>
     <string name="review">جائزہ</string>
     <string name="add_word">لفظ شامل کریں</string>
-    <string name="no_words_today">آج کوئی لفظ شامل نہیں کیا گیا\nشروع کرنے کے لیے پہلا لفظ شامل کریں!</string>
+    <string name="no_words_today">آج کوئی الفاظ شامل نہیں کیے گئے\nشروع کرنے کے لیے اپنا پہلا لفظ شامل کریں!</string>
 
     <string name="add_new_word">نیا لفظ شامل کریں</string>
     <string name="edit_word">لفظ میں ترمیم کریں</string>
-
+    <string name="menu_about">کے بارے میں</string>
+    <string name="menu_settings">ترتیبات</string>
+    <string name="delete_confirmation_title">لفظ حذف کریں</string>
+    <string name="delete_confirmation_message">کیا آپ واقعی \'%1$s\' کو حذف کرنا چاہتے ہیں؟</string>
+    <string name="delete_confirmation_yes">حذف کریں</string>
+    <string name="delete_confirmation_no">منسوخ کریں</string>
     <string name="label_word">لفظ</string>
-    <string name="label_meaning">معانی</string>
-    <string name="label_synonyms">ہم معنی الفاظ</string>
+    <string name="label_meaning">معنی</string>
+    <string name="label_synonyms">مترادفات</string>
     <string name="label_antonyms">متضاد الفاظ</string>
-    <string name="label_example">جملے میں استعمال</string>
-    <string name="label_source">آپ نے یہ لفظ کہاں سے سیکھا؟ (ماخذ)</string>
-
+    <string name="label_example">جملے میں استعمال کریں</string>
+    <string name="label_source">آپ نے یہ لفظ کہاں سے سیکھا؟ (ذریعہ)</string>
     <string name="placeholder_word">نیا لفظ درج کریں</string>
     <string name="placeholder_meaning">غیر متوقع دریافت</string>
-    <string name="placeholder_synonyms">خوش قسمتی، اتفاق</string>
-    <string name="placeholder_antonyms">منصوبہ بند، ارادی</string>
+    <string name="placeholder_synonyms">خوش قسمت، اتفاقیہ</string>
+    <string name="placeholder_antonyms">منصوبہ بند، جان بوجھ کر</string>
     <string name="placeholder_example">اس لفظ کو اپنے جملے میں استعمال کریں</string>
-
     <string name="source_book">کتاب</string>
     <string name="source_article">مضمون</string>
     <string name="source_youtube">یوٹیوب</string>
     <string name="source_conversation">گفتگو</string>
     <string name="source_other">دیگر</string>
-
     <string name="save_word">لفظ محفوظ کریں</string>
     <string name="cancel">منسوخ کریں</string>
 
     <string name="title_settings">ترتیبات</string>
     <string name="settings_theme">تھیم</string>
-    <string name="settings_light_mode">لائٹ موڈ</string>
+    <string name="settings_light_mode">روشن موڈ</string>
     <string name="settings_language">زبان</string>
-    <string name="settings_about">متعلق</string>
+    <string name="settings_about">کے بارے میں</string>
     <string name="settings_word_master">ورڈ ماسٹر</string>
-
     <string name="dialog_language_title">زبان</string>
-    <string name="lang_english">انگریزی</string>
+    <string name="lang_english">English</string>
     <string name="lang_urdu">اردو</string>
-    <string name="lang_hindi">ہندی</string>
-    <string name="lang_arabic">عربی</string>
+    <string name="lang_hindi">हिंदी</string>
+    <string name="lang_arabic">العربية</string>
 
     <string name="title_quiz">کوئز</string>
-    <string name="quiz_question">اس لفظ کا کیا مطلب ہے؟</string>
+    <string name="quiz_question">اس لفظ کا معنی کیا ہے؟</string>
     <string name="quiz_start">کوئز شروع کریں</string>
     <string name="quiz_next">اگلا</string>
-    <string name="quiz_submit">جمع کریں</string>
-    <string name="quiz_score">آپ کا اسکور %1$d / %2$d ہے</string>
+    <string name="quiz_submit">جمع کروائیں</string>
+    <string name="quiz_score">آپ نے %1$d / %2$d سکور کیا</string>
 
-    <string name="notification_channel_name">روزانہ لفظ کی یاد دہانی</string>
-    <string name="notification_channel_desc">روزانہ نیا لفظ شامل کرنے کی یاد دہانی۔</string>
+    <string name="notification_channel_name">روزانہ لفظ یاد دہانی</string>
+    <string name="notification_channel_desc">آپ کو ہر روز نیا لفظ شامل کرنے کی یاد دلاتا ہے۔</string>
     <string name="notification_title">آج نیا لفظ شامل کریں</string>
-    <string name="notification_body">نیا لفظ سیکھ کر اپنی سلسلہ برقرار رکھیں۔</string>
-    <string name="app_desc">ورڈ ماسٹر ایک ذہین الفاظ سیکھنے کی ایپ ہے جو صارفین کو روزانہ الفاظ سیکھنے اور دہرانے میں مدد دیتی ہے۔
-یہ متعدد زبانوں، ذاتی نوعیت کی سیکھنے کی سہولت، اور مؤثر الفاظ سیکھنے کے لیے ایک جدید اور سادہ انٹرفیس فراہم کرتی ہے۔</string>
+    <string name="notification_body">نیا لفظ سیکھ کر اپنا سلسلہ برقرار رکھیں۔</string>
+    <string name="app_desc">ورڈ ماسٹر ایک سمارٹ الفاظ بنانے والی ایپ ہے جو\nصارفین کو روزانہ الفاظ سیکھنے اور دہرانے میں مدد کرتی ہے\nایک آسان اور دلچسپ تجربے کے ذریعے۔\nیہ متعدد زبانوں، ذاتی سیکھنے،\nاور مؤثر لفظی مہارت کے لیے جدید انٹرفیس کی حمایت کرتا ہے۔</string>
 
+    <string name="tts_language_not_supported">TTS زبان تعاون یافتہ نہیں ہے</string>
+    <string name="tts_initialization_failed">TTS شروع کرنا ناکام ہو گیا</string>
+    <string name="speaking_word">بول رہے ہیں: %1$s</string>
+    <string name="add_words_before_reload">دوبارہ لوڈ کرنے سے پہلے الفاظ شامل کریں</string>
+    <string name="words_reloaded">الفاظ دوبارہ لوڈ ہو گئے!</string>
+
+    <string name="quiz_unlock_requirement">کوئز کھولنے سے پہلے کم از کم 5 الفاظ شامل کریں</string>
+    <string name="not_enough_meanings">کوئز کے لیے کافی معنی والے الفاظ نہیں ہیں</string>
+    <string name="word_no_synonyms">اس لفظ کے کوئی مترادفات نہیں ہیں</string>
+    <string name="not_enough_synonyms">کوئز کے لیے کافی مترادفات والے الفاظ نہیں ہیں</string>
+    <string name="word_no_antonyms">اس لفظ کے کوئی متضاد الفاظ نہیں ہیں</string>
+    <string name="not_enough_antonyms">کوئز کے لیے کافی متضاد الفاظ والے الفاظ نہیں ہیں</string>
+    <string name="quiz_meaning_question">\'%1$s\' کا معنی کیا ہے؟</string>
+    <string name="quiz_synonyms_question">\'%1$s\' کے مترادفات کیا ہیں؟</string>
+    <string name="quiz_antonyms_question">\'%1$s\' کے متضاد الفاظ کیا ہیں؟</string>
+
+    <string name="all_fields_cleared">تمام فیلڈز صاف ہو گئے</string>
+    <string name="word_added_successfully">لفظ کامیابی سے شامل ہو گیا!</string>
+
+    <string name="tts_not_ready">متن سے تقریر تیار نہیں ہے</string>
+
+    <string name="your_library">آپ کی لائبریری</string>
+    <string name="search_words_hint">الفاظ تلاش کریں...</string>
+    <string name="no_words_found">کوئی الفاظ نہیں ملے</string>
+    <string name="delete_word_title">لفظ حذف کریں</string>
+    <string name="delete_word_message">کیا آپ واقعی \'%1$s\' کو حذف کرنا چاہتے ہیں؟</string>
+    <string name="delete">حذف کریں</string>
+
+    <string name="listen">سنیں</string>
+    <string name="meaning">معنی</string>
+    <string name="synonym">مترادف</string>
+    <string name="antonym">متضاد</string>
+
+    <string name="version_text">ورژن 1.0.0</string>
+    <string name="about_tagline">اپنا الفاظ کا شاہکار بنائیں</string>
+    <string name="about_description">ورڈ ماسٹر آپ کو سمارٹ فلیش کارڈز، روزانہ جائزوں اور ذاتی سیکھنے کے راستوں کے ساتھ اپنے الفاظ کو بڑھانے میں مدد کرتا ہے۔ نئے الفاظ سیکھیں، اپنی پیشرفت کو ٹریک کریں، اور انگریزی زبان میں مہارت حاصل کریں۔</string>
+    <string name="key_features">✨ اہم خصوصیات</string>
+    <string name="feature_streaks">روزانہ سلسلہ اور پیشرفت کی ٹریکنگ</string>
+    <string name="feature_flashcards">مثالوں کے ساتھ سمارٹ فلیش کارڈز</string>
+    <string name="feature_spaced_repetition">فاصلہ دار تکرار جائزے</string>
+    <string name="feature_personalized">ذاتی سیکھنے کے راستے</string>
+    <string name="developed_with_love">محبت سے تیار کیا گیا ❤️</string>
+    <string name="developer_name">کوڈ ود مہران</string>
+    <string name="developer_tagline">ایسی ایپس بنانا جو سیکھنے کو مزے دار بناتی ہیں</string>
+
+    <string name="hello_blank_fragment">ہیلو خالی فریگمنٹ</string>
+
+    <string name="notification_title_19">اپنا سلسلہ مت کھوئیں! 🔥</string>
+    <string name="notification_body_19">آج نیا لفظ سیکھنے کے لیے 5 گھنٹے باقی ہیں!</string>
+
+    <string name="notification_title_20">آپ کا سلسلہ انتظار میں ہے! ⏰</string>
+    <string name="notification_body_20">اپنے سیکھنے کا سلسلہ برقرار رکھنے کے لیے صرف 4 گھنٹے!</string>
+
+    <string name="notification_title_21">وقت ختم ہو رہا ہے! ⚡</string>
+    <string name="notification_body_21">3 گھنٹے باقی ہیں! تیزی سے لفظ بریک؟</string>
+
+    <string name="notification_title_22">آخری موقع! 🎯</string>
+    <string name="notification_body_22">صرف 2 گھنٹے لفظ شامل کرنے اور اپنا سلسلہ بچانے کے لیے!</string>
+
+    <string name="notification_title_23">آخری یاد دہانی! 🚨</string>
+    <string name="notification_body_23">صرف 1 گھنٹہ باقی ہے! اب اپنا سلسلہ مت توڑیں!</string>
 </resources>

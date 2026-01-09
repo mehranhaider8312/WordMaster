@@ -1,6 +1,5 @@
 <resources>
-
-    <string name="app_name">وورد ماستر</string>
+    <string name="app_name">ورد ماستر</string>
 
     <string name="settings">الإعدادات</string>
     <string name="streak_days">%1$d يوم</string>
@@ -11,56 +10,115 @@
 
     <string name="add_new_word">إضافة كلمة جديدة</string>
     <string name="edit_word">تعديل الكلمة</string>
-
+    <string name="menu_about">حول</string>
+    <string name="menu_settings">الإعدادات</string>
+    <string name="delete_confirmation_title">حذف الكلمة</string>
+    <string name="delete_confirmation_message">هل أنت متأكد أنك تريد حذف \'%1$s\'؟</string>
+    <string name="delete_confirmation_yes">حذف</string>
+    <string name="delete_confirmation_no">إلغاء</string>
     <string name="label_word">الكلمة</string>
     <string name="label_meaning">المعاني</string>
     <string name="label_synonyms">المرادفات</string>
     <string name="label_antonyms">الأضداد</string>
-    <string name="label_example">استخدام في جملة</string>
-    <string name="label_source">أين تعلمت هذه الكلمة؟ (المصدر)</string>
-
+    <string name="label_example">استخدم في جملة</string>
+    <string name="label_source">من أين تعلمت هذه الكلمة؟ (المصدر)</string>
     <string name="placeholder_word">أدخل الكلمة الجديدة</string>
     <string name="placeholder_meaning">اكتشاف غير متوقع</string>
     <string name="placeholder_synonyms">محظوظ، صدفة</string>
     <string name="placeholder_antonyms">مخطط، متعمد</string>
-    <string name="placeholder_example">استخدم هذه الكلمة في جملة خاصة بك</string>
-
+    <string name="placeholder_example">استخدم هذه الكلمة في جملتك الخاصة</string>
     <string name="source_book">كتاب</string>
     <string name="source_article">مقال</string>
     <string name="source_youtube">يوتيوب</string>
     <string name="source_conversation">محادثة</string>
     <string name="source_other">أخرى</string>
-
     <string name="save_word">حفظ الكلمة</string>
     <string name="cancel">إلغاء</string>
 
     <string name="title_settings">الإعدادات</string>
-    <string name="settings_theme">السمة</string>
+    <string name="settings_theme">المظهر</string>
     <string name="settings_light_mode">الوضع الفاتح</string>
     <string name="settings_language">اللغة</string>
     <string name="settings_about">حول</string>
-    <string name="settings_word_master">وورد ماستر</string>
-
+    <string name="settings_word_master">ورد ماستر</string>
     <string name="dialog_language_title">اللغة</string>
-    <string name="lang_english">الإنجليزية</string>
-    <string name="lang_urdu">الأردية</string>
-    <string name="lang_hindi">الهندية</string>
+    <string name="lang_english">English</string>
+    <string name="lang_urdu">اردو</string>
+    <string name="lang_hindi">हिंदी</string>
     <string name="lang_arabic">العربية</string>
 
     <string name="title_quiz">اختبار</string>
     <string name="quiz_question">ما معنى هذه الكلمة؟</string>
-    <string name="quiz_start">ابدأ الاختبار</string>
+    <string name="quiz_start">بدء الاختبار</string>
     <string name="quiz_next">التالي</string>
     <string name="quiz_submit">إرسال</string>
-    <string name="quiz_score">نتيجتك %1$d / %2$d</string>
+    <string name="quiz_score">لقد حصلت على %1$d / %2$d</string>
 
     <string name="notification_channel_name">تذكير الكلمة اليومية</string>
-    <string name="notification_channel_desc">يذكّرك بإضافة كلمة جديدة كل يوم.</string>
+    <string name="notification_channel_desc">يذكرك بإضافة كلمة جديدة كل يوم.</string>
     <string name="notification_title">أضف كلمة جديدة اليوم</string>
-    <string name="notification_body">حافظ على السلسلة بتعلّم كلمة جديدة.</string>
-    <string name="app_desc">وورد ماستر هو تطبيق ذكي لتعلّم المفردات يساعد المستخدمين على تعلّم ومراجعة الكلمات يوميًا.
-يدعم التطبيق لغات متعددة وتجربة تعلّم مخصصة مع واجهة حديثة وبسيطة لإتقان المفردات بشكل فعّال..</string>
+    <string name="notification_body">حافظ على سلسلتك حية من خلال تعلم كلمة جديدة.</string>
+    <string name="app_desc">ورد ماستر هو تطبيق ذكي لبناء المفردات يساعد\nالمستخدمين على تعلم ومراجعة الكلمات يوميًا من خلال تجربة\nبديهية وجذابة.\nيدعم لغات متعددة، والتعلم الشخصي،\nوواجهة حديثة نظيفة لإتقان الكلمات بفعالية.</string>
 
+    <string name="tts_language_not_supported">لغة TTS غير مدعومة</string>
+    <string name="tts_initialization_failed">فشل تهيئة TTS</string>
+    <string name="speaking_word">النطق: %1$s</string>
+    <string name="add_words_before_reload">أضف كلمات أولاً قبل إعادة التحميل</string>
+    <string name="words_reloaded">تم إعادة تحميل الكلمات!</string>
+
+    <string name="quiz_unlock_requirement">أضف 5 كلمات على الأقل قبل أن تتمكن من فتح الاختبارات</string>
+    <string name="not_enough_meanings">لا توجد كلمات كافية بمعاني للاختبار</string>
+    <string name="word_no_synonyms">هذه الكلمة ليس لها مرادفات</string>
+    <string name="not_enough_synonyms">لا توجد كلمات كافية بمرادفات للاختبار</string>
+    <string name="word_no_antonyms">هذه الكلمة ليس لها أضداد</string>
+    <string name="not_enough_antonyms">لا توجد كلمات كافية بأضداد للاختبار</string>
+    <string name="quiz_meaning_question">ما معنى \'%1$s\'؟</string>
+    <string name="quiz_synonyms_question">ما هي مرادفات \'%1$s\'؟</string>
+    <string name="quiz_antonyms_question">ما هي أضداد \'%1$s\'؟</string>
+
+    <string name="all_fields_cleared">تم مسح جميع الحقول</string>
+    <string name="word_added_successfully">تمت إضافة الكلمة بنجاح!</string>
+
+    <string name="tts_not_ready">تحويل النص إلى كلام غير جاهز</string>
+
+    <string name="your_library">مكتبتك</string>
+    <string name="search_words_hint">ابحث عن كلمات...</string>
+    <string name="no_words_found">لم يتم العثور على كلمات</string>
+    <string name="delete_word_title">حذف الكلمة</string>
+    <string name="delete_word_message">هل أنت متأكد أنك تريد حذف \'%1$s\'؟</string>
+    <string name="delete">حذف</string>
+
+    <string name="listen">استمع</string>
+    <string name="meaning">المعنى</string>
+    <string name="synonym">المرادف</string>
+    <string name="antonym">الضد</string>
+
+    <string name="version_text">الإصدار 1.0.0</string>
+    <string name="about_tagline">ابنِ تحفة مفرداتك</string>
+    <string name="about_description">يساعدك ورد ماستر على توسيع مفرداتك باستخدام البطاقات التعليمية الذكية والمراجعات اليومية ومسارات التعلم الشخصية. تعلم كلمات جديدة، وتتبع تقدمك، وأتقن اللغة الإنجليزية.</string>
+    <string name="key_features">✨ الميزات الرئيسية</string>
+    <string name="feature_streaks">السلاسل اليومية وتتبع التقدم</string>
+    <string name="feature_flashcards">بطاقات تعليمية ذكية مع أمثلة</string>
+    <string name="feature_spaced_repetition">مراجعات التكرار المتباعد</string>
+    <string name="feature_personalized">مسارات تعلم شخصية</string>
+    <string name="developed_with_love">تم التطوير بحب ❤️</string>
+    <string name="developer_name">كود مع مهران</string>
+    <string name="developer_tagline">بناء تطبيقات تجعل التعلم ممتعًا</string>
+
+    <string name="hello_blank_fragment">مرحبا قطعة فارغة</string>
+
+    <string name="notification_title_19">لا تفقد سلسلتك! 🔥</string>
+    <string name="notification_body_19">5 ساعات متبقية لتعلم كلمة جديدة اليوم!</string>
+
+    <string name="notification_title_20">سلسلتك في انتظارك! ⏰</string>
+    <string name="notification_body_20">4 ساعات فقط للحفاظ على سلسلة التعلم الخاصة بك حية!</string>
+
+    <string name="notification_title_21">الوقت ينفد! ⚡</string>
+    <string name="notification_body_21">3 ساعات متبقية! استراحة كلمة سريعة؟</string>
+
+    <string name="notification_title_22">الفرصة الأخيرة! 🎯</string>
+    <string name="notification_body_22">ساعتان فقط لإضافة كلمة وحفظ سلسلتك!</string>
+
+    <string name="notification_title_23">التذكير الأخير! 🚨</string>
+    <string name="notification_body_23">ساعة واحدة فقط متبقية! لا تكسر سلسلتك الآن!</string>
 </resources>
-
-

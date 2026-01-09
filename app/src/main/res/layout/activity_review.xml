@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:elevation="0dp"
-        app:title="Your Library"
+        app:title="@string/your_library"
         app:titleTextColor="@color/blue_primary"
         app:navigationIcon="@drawable/arrow_back"
         app:navigationIconTint="@color/blue_primary"/>
@@ -53,7 +53,7 @@
                     android:layout_weight="1"
                     android:layout_marginStart="12dp"
                     android:background="@null"
-                    android:hint="Search words..."
+                    android:hint="@string/search_words_hint"
                     android:textColor="@color/blue_primary"
                     android:textColorHint="@color/text_muted"
                     android:textSize="16sp" />
@@ -73,7 +73,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="No words found"
+            android:text="@string/no_words_found"
             android:textColor="@color/text_muted"
             android:textSize="16sp"
             android:visibility="gone" />

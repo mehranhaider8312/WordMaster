@@ -1,5 +1,4 @@
 <resources>
-
     <string name="app_name">वर्ड मास्टर</string>
 
     <string name="settings">सेटिंग्स</string>
@@ -7,30 +6,32 @@
     <string name="streak_placeholder">0 दिन</string>
     <string name="review">समीक्षा</string>
     <string name="add_word">शब्द जोड़ें</string>
-    <string name="no_words_today">आज कोई शब्द नहीं जोड़ा गया\nशुरू करने के लिए पहला शब्द जोड़ें!</string>
+    <string name="no_words_today">आज कोई शब्द नहीं जोड़े गए\nशुरू करने के लिए अपना पहला शब्द जोड़ें!</string>
 
     <string name="add_new_word">नया शब्द जोड़ें</string>
     <string name="edit_word">शब्द संपादित करें</string>
-
+    <string name="menu_about">के बारे में</string>
+    <string name="menu_settings">सेटिंग्स</string>
+    <string name="delete_confirmation_title">शब्द हटाएं</string>
+    <string name="delete_confirmation_message">क्या आप वाकई \'%1$s\' को हटाना चाहते हैं?</string>
+    <string name="delete_confirmation_yes">हटाएं</string>
+    <string name="delete_confirmation_no">रद्द करें</string>
     <string name="label_word">शब्द</string>
     <string name="label_meaning">अर्थ</string>
-    <string name="label_synonyms">पर्यायवाची</string>
-    <string name="label_antonyms">विलोम</string>
-    <string name="label_example">वाक्य में प्रयोग</string>
-    <string name="label_source">आपने यह शब्द कहाँ सीखा? (स्रोत)</string>
-
+    <string name="label_synonyms">समानार्थी शब्द</string>
+    <string name="label_antonyms">विलोम शब्द</string>
+    <string name="label_example">वाक्य में प्रयोग करें</string>
+    <string name="label_source">आपने यह शब्द कहाँ से सीखा? (स्रोत)</string>
     <string name="placeholder_word">नया शब्द दर्ज करें</string>
-    <string name="placeholder_meaning">अप्रत्याशित खोज</string>
+    <string name="placeholder_meaning">एक अप्रत्याशित खोज</string>
     <string name="placeholder_synonyms">भाग्यशाली, संयोग</string>
-    <string name="placeholder_antonyms">योजित, जानबूझकर</string>
+    <string name="placeholder_antonyms">योजनाबद्ध, जानबूझकर</string>
     <string name="placeholder_example">इस शब्द को अपने वाक्य में प्रयोग करें</string>
-
-    <string name="source_book">पुस्तक</string>
+    <string name="source_book">किताब</string>
     <string name="source_article">लेख</string>
     <string name="source_youtube">यूट्यूब</string>
     <string name="source_conversation">बातचीत</string>
     <string name="source_other">अन्य</string>
-
     <string name="save_word">शब्द सहेजें</string>
     <string name="cancel">रद्द करें</string>
 
@@ -38,27 +39,86 @@
     <string name="settings_theme">थीम</string>
     <string name="settings_light_mode">लाइट मोड</string>
     <string name="settings_language">भाषा</string>
-    <string name="settings_about">जानकारी</string>
+    <string name="settings_about">के बारे में</string>
     <string name="settings_word_master">वर्ड मास्टर</string>
-
     <string name="dialog_language_title">भाषा</string>
-    <string name="lang_english">अंग्रेज़ी</string>
-    <string name="lang_urdu">उर्दू</string>
+    <string name="lang_english">English</string>
+    <string name="lang_urdu">اردو</string>
     <string name="lang_hindi">हिंदी</string>
-    <string name="lang_arabic">अरबी</string>
+    <string name="lang_arabic">العربية</string>
 
     <string name="title_quiz">क्विज़</string>
     <string name="quiz_question">इस शब्द का अर्थ क्या है?</string>
     <string name="quiz_start">क्विज़ शुरू करें</string>
     <string name="quiz_next">अगला</string>
     <string name="quiz_submit">जमा करें</string>
-    <string name="quiz_score">आपका स्कोर %1$d / %2$d है</string>
+    <string name="quiz_score">आपने %1$d / %2$d स्कोर किया</string>
 
     <string name="notification_channel_name">दैनिक शब्द अनुस्मारक</string>
-    <string name="notification_channel_desc">हर दिन नया शब्द जोड़ने की याद दिलाता है।</string>
-    <string name="notification_title">आज नया शब्द जोड़ें</string>
-    <string name="notification_body">नया शब्द सीखकर अपनी स्ट्रीक बनाए रखें।</string>
-    <string name="app_desc">वर्ड मास्टर एक स्मार्ट शब्दावली ऐप है जो उपयोगकर्ताओं को रोज़ नए शब्द सीखने और दोहराने में मदद करता है।
-यह कई भाषाओं, व्यक्तिगत सीखने की सुविधा और प्रभावी शब्द-अधिगम के लिए एक साफ़ और आधुनिक इंटरफ़ेस प्रदान करता है।</string>
+    <string name="notification_channel_desc">आपको हर दिन एक नया शब्द जोड़ने की याद दिलाता है।</string>
+    <string name="notification_title">आज एक नया शब्द जोड़ें</string>
+    <string name="notification_body">नया शब्द सीखकर अपनी लकीर को जीवित रखें।</string>
+    <string name="app_desc">वर्ड मास्टर एक स्मार्ट शब्दावली-निर्माण ऐप है जो\nउपयोगकर्ताओं को एक सहज और आकर्षक अनुभव के माध्यम से\nप्रतिदिन शब्द सीखने और दोहराने में मदद करता है।\nयह कई भाषाओं, व्यक्तिगत शिक्षा,\nऔर प्रभावी शब्द महारत के लिए एक स्वच्छ आधुनिक इंटरफ़ेस का समर्थन करता है।</string>
 
+    <string name="tts_language_not_supported">TTS भाषा समर्थित नहीं है</string>
+    <string name="tts_initialization_failed">TTS आरंभीकरण विफल रहा</string>
+    <string name="speaking_word">बोल रहे हैं: %1$s</string>
+    <string name="add_words_before_reload">पुनः लोड करने से पहले शब्द जोड़ें</string>
+    <string name="words_reloaded">शब्द पुनः लोड हो गए!</string>
+
+    <string name="quiz_unlock_requirement">क्विज़ अनलॉक करने से पहले कम से कम 5 शब्द जोड़ें</string>
+    <string name="not_enough_meanings">क्विज़ के लिए पर्याप्त अर्थ वाले शब्द नहीं हैं</string>
+    <string name="word_no_synonyms">इस शब्द के कोई समानार्थी शब्द नहीं हैं</string>
+    <string name="not_enough_synonyms">क्विज़ के लिए पर्याप्त समानार्थी शब्द वाले शब्द नहीं हैं</string>
+    <string name="word_no_antonyms">इस शब्द के कोई विलोम शब्द नहीं हैं</string>
+    <string name="not_enough_antonyms">क्विज़ के लिए पर्याप्त विलोम शब्द वाले शब्द नहीं हैं</string>
+    <string name="quiz_meaning_question">\'%1$s\' का अर्थ क्या है?</string>
+    <string name="quiz_synonyms_question">\'%1$s\' के समानार्थी शब्द क्या हैं?</string>
+    <string name="quiz_antonyms_question">\'%1$s\' के विलोम शब्द क्या हैं?</string>
+
+    <string name="all_fields_cleared">सभी फ़ील्ड साफ़ हो गए</string>
+    <string name="word_added_successfully">शब्द सफलतापूर्वक जोड़ा गया!</string>
+
+    <string name="tts_not_ready">टेक्स्ट-टू-स्पीच तैयार नहीं है</string>
+
+    <string name="your_library">आपकी लाइब्रेरी</string>
+    <string name="search_words_hint">शब्द खोजें...</string>
+    <string name="no_words_found">कोई शब्द नहीं मिला</string>
+    <string name="delete_word_title">शब्द हटाएं</string>
+    <string name="delete_word_message">क्या आप वाकई \'%1$s\' को हटाना चाहते हैं?</string>
+    <string name="delete">हटाएं</string>
+
+    <string name="listen">सुनें</string>
+    <string name="meaning">अर्थ</string>
+    <string name="synonym">समानार्थी</string>
+    <string name="antonym">विलोम</string>
+
+    <string name="version_text">संस्करण 1.0.0</string>
+    <string name="about_tagline">अपनी शब्दावली की उत्कृष्ट कृति बनाएं</string>
+    <string name="about_description">वर्ड मास्टर स्मार्ट फ्लैशकार्ड, दैनिक समीक्षा और व्यक्तिगत शिक्षण पथों के साथ आपकी शब्दावली का विस्तार करने में मदद करता है। नए शब्द सीखें, अपनी प्रगति को ट्रैक करें और अंग्रेजी भाषा में महारत हासिल करें।</string>
+    <string name="key_features">✨ मुख्य विशेषताएं</string>
+    <string name="feature_streaks">दैनिक लकीर और प्रगति ट्रैकिंग</string>
+    <string name="feature_flashcards">उदाहरणों के साथ स्मार्ट फ्लैशकार्ड</string>
+    <string name="feature_spaced_repetition">अंतराल पुनरावृत्ति समीक्षा</string>
+    <string name="feature_personalized">व्यक्तिगत शिक्षण पथ</string>
+    <string name="developed_with_love">प्यार से विकसित किया गया ❤️</string>
+    <string name="developer_name">कोड विद मेहरान</string>
+    <string name="developer_tagline">ऐसे ऐप्स बनाना जो सीखना मज़ेदार बनाते हैं</string>
+
+    <string name="hello_blank_fragment">हैलो खाली फ्रैगमेंट</string>
+
+    <string name="notification_title_19">अपनी लकीर मत खोएं! 🔥</string>
+    <string name="notification_body_19">आज एक नया शब्द सीखने के लिए 5 घंटे बचे हैं!</string>
+
+    <string name="notification_title_20">आपकी लकीर प्रतीक्षा कर रही है! ⏰</string>
+    <string name="notification_body_20">अपनी सीखने की लकीर को जीवित रखने के लिए केवल 4 घंटे!</string>
+
+    <string name="notification_title_21">समय समाप्त हो रहा है! ⚡</string>
+    <string name="notification_body_21">3 घंटे बचे हैं! त्वरित शब्द ब्रेक?</string>
+
+    <string name="notification_title_22">अंतिम मौका! 🎯</string>
+    <string name="notification_body_22">एक शब्द जोड़ने और अपनी लकीर बचाने के लिए सिर्फ 2 घंटे!</string>
+
+    <string name="notification_title_23">अंतिम अनुस्मारक! 🚨</string>
+    <string name="notification_body_23">सिर्फ 1 घंटा बचा है! अब अपनी लकीर मत तोड़ें!</string>
 </resources>

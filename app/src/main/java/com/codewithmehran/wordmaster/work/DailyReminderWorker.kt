@@ -23,6 +23,7 @@ class DailyReminderWorker(
     workerParams: WorkerParameters
 ) : CoroutineWorker(appContext, workerParams) {
 
+    @RequiresPermission(Manifest.permission.POST_NOTIFICATIONS)
     override suspend fun doWork(): Result {
         val app = applicationContext as WordMasterApp
         val streakRepository = app.streakRepository
@@ -32,25 +33,62 @@ class DailyReminderWorker(
         val lastDate = streak.lastAddedDate?.let { startOfDay(it) }
 
         if (lastDate == null || lastDate.time != todayStart.time) {
-            showNotification()
+            val currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
+
+            if (currentHour in 19..23) {
+                showNotification(currentHour)
+            }
         }
 
         return Result.success()
     }
 
     @RequiresPermission(Manifest.permission.POST_NOTIFICATIONS)
-    private fun showNotification() {
+    private fun showNotification(hour: Int) {
         createChannel()
+
+        val (title, body) = getNotificationContent(hour)
+
         val builder = NotificationCompat.Builder(applicationContext, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_notification_word)
-            .setContentTitle(applicationContext.getString(R.string.notification_title))
-            .setContentText(applicationContext.getString(R.string.notification_body))
+            .setContentTitle(title)
+            .setContentText(body)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setAutoCancel(true)
 
         NotificationManagerCompat.from(applicationContext).notify(
-            NOTIFICATION_ID,
+            NOTIFICATION_ID + hour,
             builder.build()
         )
+    }
+
+    private fun getNotificationContent(hour: Int): Pair<String, String> {
+        return when (hour) {
+            19 -> Pair(
+                applicationContext.getString(R.string.notification_title_19),
+                applicationContext.getString(R.string.notification_body_19)
+            )
+            20 -> Pair(
+                applicationContext.getString(R.string.notification_title_20),
+                applicationContext.getString(R.string.notification_body_20)
+            )
+            21 -> Pair(
+                applicationContext.getString(R.string.notification_title_21),
+                applicationContext.getString(R.string.notification_body_21)
+            )
+            22 -> Pair(
+                applicationContext.getString(R.string.notification_title_22),
+                applicationContext.getString(R.string.notification_body_22)
+            )
+            23 -> Pair(
+                applicationContext.getString(R.string.notification_title_23),
+                applicationContext.getString(R.string.notification_body_23)
+            )
+            else -> Pair(
+                applicationContext.getString(R.string.notification_title),
+                applicationContext.getString(R.string.notification_body)
+            )
+        }
     }
 
     private fun createChannel() {
@@ -79,5 +117,3 @@ class DailyReminderWorker(
         return cal.time
     }
 }
-
-

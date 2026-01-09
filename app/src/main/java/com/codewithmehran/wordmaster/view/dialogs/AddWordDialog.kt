@@ -46,7 +46,7 @@ class AddWordDialog(
             binding.inputExample.text?.clear()
             binding.chipGroupSource.clearCheck()
 
-            Toast.makeText(context, "All fields cleared", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, context.getString(R.string.all_fields_cleared), Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -77,7 +77,7 @@ class AddWordDialog(
 
                 dismissWithAnimation()
 
-                Toast.makeText(context, "Word added successfully!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, context.getString(R.string.word_added_successfully), Toast.LENGTH_SHORT).show()
             }
         }
 

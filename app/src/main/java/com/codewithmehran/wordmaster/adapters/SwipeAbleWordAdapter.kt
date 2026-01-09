@@ -7,9 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.Toast
+import com.codewithmehran.wordmaster.R
 import com.codewithmehran.wordmaster.databinding.ItemWordCardBinding
 import com.codewithmehran.wordmaster.model.Word
 import com.codewithmehran.wordmaster.view.dialogs.QuizDialog
+import com.google.firebase.Timestamp
 
 class SwipeAbleWordAdapter(
     private val context: Context,
@@ -19,10 +21,12 @@ class SwipeAbleWordAdapter(
     private var dataList = mutableListOf<Word>()
     private var onListenClick: ((String) -> Unit)? = null
     private var onCardAnimationListener: ((View, () -> Unit) -> Unit)? = null
+    private var onDeckEmpty: (() -> Unit)? = null
+
 
     init {
         if (data != null) {
-            dataList.addAll(data)
+            updateData(data)
             Log.d("CardCountIssue", "Adapter initialized with ${dataList.size} words")
         } else {
             Log.d("CardCountIssue", "Adapter initialized with null data")
@@ -33,31 +37,27 @@ class SwipeAbleWordAdapter(
         onListenClick = listener
     }
 
-    fun setOnCardAnimationListener(listener: (View, () -> Unit) -> Unit) {
-        onCardAnimationListener = listener
-    }
-
-    override fun getCount(): Int {
-        Log.d("CardCountIssue", "getCount() called - returning ${dataList.size}")
-        return dataList.size
-    }
-
-    override fun getItem(position: Int): Word {
-        Log.d("CardCountIssue", "getItem($position) called")
-        return dataList[position]
-    }
-
-    override fun getItemId(position: Int): Long {
-        return position.toLong()
+    fun setOnDeckEmptyListener(listener: () -> Unit) {
+        onDeckEmpty = listener
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         Log.d("CardCountIssue", "getView($position) called - total items: ${dataList.size}")
 
+        // Handle dummy card at position 0 - create empty view
+        if (position == 0) {
+            // Return empty view that won't be visible
+            return View(parent.context).apply {
+                visibility = View.GONE
+                layoutParams = ViewGroup.LayoutParams(0, 0)
+            }
+        }
+
+        // For real cards (position >= 1)
         val holder: WordViewHolder
         val view: View
 
-        if (convertView == null) {
+        if (convertView == null || convertView.tag == null) {
             Log.d("CardCountIssue", "Creating new view for position $position")
             val binding = ItemWordCardBinding.inflate(
                 LayoutInflater.from(parent.context),
@@ -73,18 +73,90 @@ class SwipeAbleWordAdapter(
             holder = view.tag as WordViewHolder
         }
 
+        // Bind real card data
         holder.bindData(getItem(position), position, onListenClick)
         return view
     }
+
+    fun updateData(newData: List<Word>) {
+        Log.d("CardCountIssue", "Adapter updateData called with ${newData.size} items")
+
+        // Clear existing data
+        dataList.clear()
+
+        // Add dummy card at index 0 if we have any real cards
+        if (newData.isNotEmpty()) {
+            val dummy = Word(
+                word = "",
+                meaning = "",
+                synonyms = "",
+                antonyms = "",
+                exampleSentence = "",
+                id = 0,
+                source = "other",
+                dateAdded = Timestamp.now().toDate()
+            )
+            dataList.add(dummy)
+        }
+
+        // Add all real cards
+        dataList.addAll(newData)
+
+        notifyDataSetChanged()
+
+        Log.d("CardCountIssue", "Adapter data updated, new count: ${dataList.size}")
+        Log.d("CardCountIssue", "Real item count: ${getRealItemCount()}")
+    }
+
+    fun clearData() {
+        Log.d("CardCountIssue", "clearData() called")
+        dataList.clear()
+        notifyDataSetChanged()
+    }
+
+    override fun getCount(): Int { // For Koloda
+        return dataList.size
+    }
+
+    fun getRealItemCount(): Int {
+        // Return only real cards (excluding dummy at index 0)
+        return maxOf(0, dataList.size - 1)
+    }
+
+    fun getRealItemCountBeforeSwipe(swipedPosition: Int): Int {
+        // Calculate how many real cards were there BEFORE the swipe
+        // swipedPosition is the position that was just swiped
+        // If we have N total items (including dummy), and we swiped at position P,
+        // then before swipe we had (N-1) real cards
+
+        // IMPORTANT: Koloda's position parameter might be 1-based for the visible cards
+        // Let's use the current dataList size to determine
+
+        if (dataList.isEmpty()) return 0
+
+        // Before any swipe, total items = dataList.size
+        // Real cards = dataList.size - 1 (minus dummy)
+        return maxOf(0, dataList.size - 1)
+    }
+
+
+    override fun getItem(position: Int): Word {
+        Log.d("CardCountIssue", "getItem($position) called")
+        if (position == 0) return Word(0.toLong(),"", "", "", "", "", "other",Timestamp.now().toDate())  // dummy
+        return dataList[position]
+    }
+
+
+    override fun getItemId(position: Int): Long {
+        return position.toLong()
+    }
+
 
     fun getAllWords(): List<Word> {
         return dataList
     }
 
-    fun updateData(newData: List<Word>) {
-        this.dataList = newData as MutableList<Word>
-        notifyDataSetChanged()
-    }
+
 
     class WordViewHolder(
         private val binding: ItemWordCardBinding,
@@ -151,7 +223,7 @@ class SwipeAbleWordAdapter(
             if (allWords.size < 5) {
                 Toast.makeText(
                     context,
-                    "Add at least 5 words before you can unlock quizzes",
+                    context.getString(R.string.quiz_unlock_requirement),
                     Toast.LENGTH_SHORT
                 ).show()
                 return
@@ -166,7 +238,7 @@ class SwipeAbleWordAdapter(
             if (wrongMeanings.size < 3) {
                 Toast.makeText(
                     context,
-                    "Not enough words with meanings for quiz",
+                    context.getString(R.string.not_enough_meanings),
                     Toast.LENGTH_SHORT
                 ).show()
                 return
@@ -180,7 +252,7 @@ class SwipeAbleWordAdapter(
 
             showQuizAfterAnimation(
                 cardView,
-                "What is the meaning of '${currentWord.word}'?",
+                context.getString(R.string.quiz_meaning_question, currentWord.word),
                 allOptions[0],
                 allOptions[1],
                 allOptions[2],
@@ -195,7 +267,7 @@ class SwipeAbleWordAdapter(
             if (allWords.size < 5) {
                 Toast.makeText(
                     context,
-                    "Add at least 5 words before you can unlock quizzes",
+                    context.getString(R.string.quiz_unlock_requirement),
                     Toast.LENGTH_SHORT
                 ).show()
                 return
@@ -204,7 +276,7 @@ class SwipeAbleWordAdapter(
             if (currentWord.synonyms.isNullOrBlank()) {
                 Toast.makeText(
                     context,
-                    "This word has no synonyms",
+                    context.getString(R.string.word_no_synonyms),
                     Toast.LENGTH_SHORT
                 ).show()
                 return
@@ -219,7 +291,7 @@ class SwipeAbleWordAdapter(
             if (wrongSynonyms.size < 3) {
                 Toast.makeText(
                     context,
-                    "Not enough words with synonyms for quiz",
+                    context.getString(R.string.not_enough_synonyms),
                     Toast.LENGTH_SHORT
                 ).show()
                 return
@@ -233,7 +305,7 @@ class SwipeAbleWordAdapter(
 
             showQuizAfterAnimation(
                 cardView,
-                "What are the synonyms of '${currentWord.word}'?",
+                context.getString(R.string.quiz_synonyms_question, currentWord.word),
                 allOptions[0],
                 allOptions[1],
                 allOptions[2],
@@ -248,7 +320,7 @@ class SwipeAbleWordAdapter(
             if (allWords.size < 5) {
                 Toast.makeText(
                     context,
-                    "Add at least 5 words before you can unlock quizzes",
+                    context.getString(R.string.quiz_unlock_requirement),
                     Toast.LENGTH_SHORT
                 ).show()
                 return
@@ -257,7 +329,7 @@ class SwipeAbleWordAdapter(
             if (currentWord.antonyms.isNullOrBlank()) {
                 Toast.makeText(
                     context,
-                    "This word has no antonyms",
+                    context.getString(R.string.word_no_antonyms),
                     Toast.LENGTH_SHORT
                 ).show()
                 return
@@ -272,7 +344,7 @@ class SwipeAbleWordAdapter(
             if (wrongAntonyms.size < 3) {
                 Toast.makeText(
                     context,
-                    "Not enough words with antonyms for quiz",
+                    context.getString(R.string.not_enough_antonyms),
                     Toast.LENGTH_SHORT
                 ).show()
                 return
@@ -286,7 +358,7 @@ class SwipeAbleWordAdapter(
 
             showQuizAfterAnimation(
                 cardView,
-                "What are the antonyms of '${currentWord.word}'?",
+                context.getString(R.string.quiz_antonyms_question, currentWord.word),
                 allOptions[0],
                 allOptions[1],
                 allOptions[2],

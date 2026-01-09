@@ -8,6 +8,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.codewithmehran.wordmaster.R
 import com.codewithmehran.wordmaster.adapters.LibraryWordAdapter
 import com.codewithmehran.wordmaster.databinding.ActivityReviewBinding
 import com.codewithmehran.wordmaster.model.WordMasterApp
@@ -73,10 +74,20 @@ class ReviewActivity : AppCompatActivity() {
 
     private fun observeViewModel() {
         wordViewModel.filteredWords.observe(this) { words ->
-            adapter.submitList(words)
+            val processedWords = if (words.isNotEmpty()) {
+                if (words[0].dateAdded.time == Long.MAX_VALUE) {
+                    words.drop(1)
+                } else {
+                    words
+                }
+            } else {
+                emptyList()
+            }
+
+            adapter.submitList(processedWords)
 
             binding.txtEmptyState.visibility =
-                if (words.isEmpty()) android.view.View.VISIBLE
+                if (processedWords.isEmpty()) android.view.View.VISIBLE
                 else android.view.View.GONE
         }
     }
@@ -93,14 +104,35 @@ class ReviewActivity : AppCompatActivity() {
     }
 
     private fun showDeleteConfirmationDialog(word: com.codewithmehran.wordmaster.model.Word) {
-        AlertDialog.Builder(this)
-            .setTitle("Delete Word")
-            .setMessage("Are you sure you want to delete '${word.word}'?")
-            .setPositiveButton("Delete") { _, _ ->
-                wordViewModel.deleteWord(word)
-            }
-            .setNegativeButton("Cancel", null)
-            .show()
-    }
+        val dialogView = layoutInflater.inflate(R.layout.dialog_delete_confirmation, null)
+        val builder = AlertDialog.Builder(this)
+            .setView(dialogView)
+            .setCancelable(true)
 
+        val dialog = builder.create()
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        val tvMessage = dialogView.findViewById<android.widget.TextView>(R.id.tvMessage)
+        val btnDelete = dialogView.findViewById<android.view.View>(R.id.btnDelete)
+        val btnCancel = dialogView.findViewById<android.view.View>(R.id.btnCancel)
+        val adContainer = dialogView.findViewById<android.widget.FrameLayout>(R.id.adContainer)
+
+        tvMessage.text = getString(R.string.delete_confirmation_message, word.word)
+
+        val app = application as WordMasterApp
+        val adView = app.createBannerAdView(this, com.google.android.gms.ads.AdSize.BANNER)
+        adContainer.removeAllViews()
+        adContainer.addView(adView)
+
+        btnDelete.setOnClickListener {
+            wordViewModel.deleteWord(word)
+            dialog.dismiss()
+        }
+
+        btnCancel.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialog.show()
+    }
 }

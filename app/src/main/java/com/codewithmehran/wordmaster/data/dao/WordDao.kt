@@ -46,6 +46,9 @@ class WordDao(context: Context) {
     }
 
     fun delete(word: Word): Int {
+        // Prevent deletion of system word
+        if (word.dateAdded.time == Long.MAX_VALUE) return 0
+
         val db = dbHelper.writableDatabase
         return db.delete(
             VocabularyTables.TABLE_WORDS,

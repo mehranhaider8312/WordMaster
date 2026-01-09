@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.codewithmehran.wordmaster.R
 import com.codewithmehran.wordmaster.databinding.ActivityWordDetailsBinding
 import com.codewithmehran.wordmaster.model.WordMasterApp
 import com.codewithmehran.wordmaster.view.dialogs.EditWordDialog
@@ -70,11 +71,11 @@ class WordDetailsActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                 result != TextToSpeech.LANG_NOT_SUPPORTED) {
                 true
             } else {
-                Toast.makeText(this, "Text-to-speech language not supported", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.tts_language_not_supported), Toast.LENGTH_SHORT).show()
                 false
             }
         } else {
-            Toast.makeText(this, "Text-to-speech initialization failed", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.tts_initialization_failed), Toast.LENGTH_SHORT).show()
             isTtsReady = false
         }
     }
@@ -85,7 +86,7 @@ class WordDetailsActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             if (word.isNotEmpty() && isTtsReady) {
                 textToSpeech.speak(word, TextToSpeech.QUEUE_FLUSH, null, null)
             } else if (!isTtsReady) {
-                Toast.makeText(this, "Text-to-speech not ready", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.tts_not_ready), Toast.LENGTH_SHORT).show()
             }
         }
 
