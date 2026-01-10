@@ -121,4 +121,6 @@
 
     <string name="notification_title_23">التذكير الأخير! 🚨</string>
     <string name="notification_body_23">ساعة واحدة فقط متبقية! لا تكسر سلسلتك الآن!</string>
+    <string name="empty_state">أضف بعض الكلمات أولاً</string>
+
 </resources>

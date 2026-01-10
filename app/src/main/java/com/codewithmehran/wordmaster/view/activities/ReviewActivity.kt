@@ -3,6 +3,7 @@ package com.codewithmehran.wordmaster.view.activities
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
@@ -89,9 +90,11 @@ class ReviewActivity : AppCompatActivity() {
 
             adapter.submitList(processedWords)
 
-            binding.txtEmptyState.visibility =
-                if (processedWords.isEmpty()) android.view.View.VISIBLE
-                else android.view.View.GONE
+            binding.emptyStateContainer.visibility =
+                if (processedWords.isEmpty()) View.VISIBLE
+                else View.GONE
+            if (processedWords.isEmpty())
+                binding.lottieEmptyState.playAnimation()
         }
     }
 
@@ -116,8 +119,8 @@ class ReviewActivity : AppCompatActivity() {
         dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
 
         val tvMessage = dialogView.findViewById<android.widget.TextView>(R.id.tvMessage)
-        val btnDelete = dialogView.findViewById<android.view.View>(R.id.btnDelete)
-        val btnCancel = dialogView.findViewById<android.view.View>(R.id.btnCancel)
+        val btnDelete = dialogView.findViewById<View>(R.id.btnDelete)
+        val btnCancel = dialogView.findViewById<View>(R.id.btnCancel)
         val adContainer = dialogView.findViewById<android.widget.FrameLayout>(R.id.adContainer)
 
         tvMessage.text = getString(R.string.delete_confirmation_message, word.word)

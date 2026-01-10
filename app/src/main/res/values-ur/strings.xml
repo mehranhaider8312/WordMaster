@@ -121,4 +121,6 @@
 
     <string name="notification_title_23">آخری یاد دہانی! 🚨</string>
     <string name="notification_body_23">صرف 1 گھنٹہ باقی ہے! اب اپنا سلسلہ مت توڑیں!</string>
+
+    <string name="empty_state">پہلے کچھ الفاظ شامل کریں</string>
 </resources>

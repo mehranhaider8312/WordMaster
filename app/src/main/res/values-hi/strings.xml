@@ -121,4 +121,6 @@
 
     <string name="notification_title_23">अंतिम अनुस्मारक! 🚨</string>
     <string name="notification_body_23">सिर्फ 1 घंटा बचा है! अब अपनी लकीर मत तोड़ें!</string>
+    <string name="empty_state">पहले कुछ शब्द जोड़ें</string>
+
 </resources>
