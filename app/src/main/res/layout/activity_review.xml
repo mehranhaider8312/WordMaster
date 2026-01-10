@@ -11,9 +11,11 @@
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="?actionBarSize"
+        android:layout_gravity="center_vertical"
         android:background="@android:color/transparent"
         android:elevation="0dp"
+        android:layout_marginTop="5dp"
         app:title="@string/your_library"
         app:titleTextColor="@color/blue_primary"
         app:navigationIcon="@drawable/arrow_back"

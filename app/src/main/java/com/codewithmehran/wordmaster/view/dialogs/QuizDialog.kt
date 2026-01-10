@@ -11,6 +11,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
+import com.codewithmehran.wordmaster.utils.MixpanelHelper
 import com.codewithmehran.wordmaster.R
 
 class QuizDialog(
@@ -149,6 +150,8 @@ class QuizDialog(
 
         // Show result card
         showResult(option == correctAnswer)
+
+        MixpanelHelper.trackQuizTaken(question, option == correctAnswer)
     }
 
     private fun resetAllOptions() {

@@ -15,6 +15,7 @@ import com.codewithmehran.wordmaster.model.WordMasterApp
 import com.codewithmehran.wordmaster.view.dialogs.EditWordDialog
 import com.codewithmehran.wordmaster.viewmodel.WordViewModel
 import com.codewithmehran.wordmaster.viewmodel.WordViewModelFactory
+import com.codewithmehran.wordmaster.utils.MixpanelHelper
 
 class ReviewActivity : AppCompatActivity() {
 
@@ -38,6 +39,8 @@ class ReviewActivity : AppCompatActivity() {
         observeViewModel()
 
         wordViewModel.loadWords()
+        
+        MixpanelHelper.trackEvent("Screen View", mapOf("Screen Name" to "ReviewActivity"))
     }
 
     private fun setupToolbar() {
@@ -126,6 +129,7 @@ class ReviewActivity : AppCompatActivity() {
 
         btnDelete.setOnClickListener {
             wordViewModel.deleteWord(word)
+            MixpanelHelper.trackWordDeleted(word.word)
             dialog.dismiss()
         }
 

@@ -82,6 +82,7 @@ class EditWordDialog(
                     dateAdded = originalWord.dateAdded
                 )
                 onWordUpdated(updatedWord)
+                com.codewithmehran.wordmaster.utils.MixpanelHelper.trackWordEdited(updatedWord.word)
                 dismiss()
             }
         }

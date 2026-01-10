@@ -60,11 +60,12 @@ dependencies {
     // https://mvnrepository.com/artifact/com.airbnb.android/lottie
     implementation("com.airbnb.android:lottie:6.7.1")
 
+    implementation("com.mixpanel.android:mixpanel-android:8.2.4")
+
     implementation ("com.github.Yalantis:Koloda-Android:v0.0.2-alpha"){
         exclude("com.android.support")
     }
     implementation(libs.firebase.crashlytics)
-
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

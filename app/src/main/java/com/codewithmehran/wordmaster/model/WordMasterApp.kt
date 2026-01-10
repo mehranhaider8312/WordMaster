@@ -59,6 +59,7 @@ class WordMasterApp : Application() {
         applyTheme()
         scheduleDailyReminder()
         initializeAdMob()
+        com.codewithmehran.wordmaster.utils.MixpanelHelper.init(this)
     }
 
     private fun applyTheme() {

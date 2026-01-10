@@ -27,7 +27,7 @@ class SettingsActivity : BaseAdActivity() {
         binding.toolbar.title = getString(R.string.title_settings)
         binding.toolbar.setNavigationIcon(R.drawable.arrow_back)
         binding.toolbar.setNavigationOnClickListener {
-            trackClick() // Track click for interstitial ad
+            trackClick()
             finish()
         }
 
@@ -38,7 +38,7 @@ class SettingsActivity : BaseAdActivity() {
         binding.switchLightMode.isChecked = !isDarkMode
 
         binding.switchLightMode.setOnCheckedChangeListener { _, isChecked ->
-            trackClick() // Track click for interstitial ad
+            trackClick()
             val newIsDarkMode = !isChecked
             sharedPreferences.edit().putBoolean("is_dark_mode", newIsDarkMode).apply()
             
@@ -50,13 +50,11 @@ class SettingsActivity : BaseAdActivity() {
             androidx.appcompat.app.AppCompatDelegate.setDefaultNightMode(mode)
         }
 
-        // Language
         binding.rowLanguage.setOnClickListener {
             trackClick()
             showLanguageDialog()
         }
 
-        // About
         binding.rowAbout.setOnClickListener {
             trackClick()
             startActivity(android.content.Intent(this, AboutActivity::class.java))

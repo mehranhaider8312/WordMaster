@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.util.Log
 import android.view.View
+import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.PopupMenu
 import android.widget.Toast
@@ -12,6 +13,7 @@ import androidx.activity.addCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
+import com.codewithmehran.wordmaster.utils.MixpanelHelper
 import com.codewithmehran.wordmaster.R
 import com.codewithmehran.wordmaster.adapters.SwipeAbleWordAdapter
 import com.codewithmehran.wordmaster.databinding.ActivityMainBinding
@@ -34,6 +36,7 @@ class MainActivity : BaseAdActivity() {
     private var exitDialog: AlertDialog? = null
     private var swipeAdapter: SwipeAbleWordAdapter? = null
     private lateinit var textToSpeech: TextToSpeech
+    private var wordsSwiped = false
 
     private val wordViewModel: WordViewModel by viewModels {
         WordViewModelFactory((application as WordMasterApp).wordRepository)
@@ -59,6 +62,12 @@ class MainActivity : BaseAdActivity() {
         startStreakAnimations()
 
         showEmptyState()
+
+        MixpanelHelper.trackEvent("Screen View", mapOf("Screen Name" to "MainActivity"))
+
+//        binding.btnTestCrash.setOnClickListener {
+//            throw RuntimeException("Testing Crash!!")
+//        }
 
         wordViewModel.loadWords()
         streakViewModel.loadStreak()
@@ -93,6 +102,19 @@ class MainActivity : BaseAdActivity() {
                 showEmptyState()
             }
         }
+        swipeAdapter?.setOnCardAnimationListener { view, showQuiz ->
+            val beforeQuizAnimation = AnimationUtils.loadAnimation(this,R.anim.flip_360)
+            beforeQuizAnimation.setAnimationListener(object: Animation.AnimationListener{
+                override fun onAnimationEnd(animation: Animation?) {
+                    showQuiz()
+                }
+
+                override fun onAnimationRepeat(animation: Animation?) { }
+
+                override fun onAnimationStart(animation: Animation?) {  }
+            })
+            view.startAnimation(beforeQuizAnimation)
+        }
 
         binding.swipeAbleCardView.kolodaListener = object : KolodaListener {
             override fun onNewTopCard(position: Int) {
@@ -110,16 +132,14 @@ class MainActivity : BaseAdActivity() {
             override fun onCardDrag(position: Int, cardView: View, progress: Float) {}
 
             override fun onCardSwipedLeft(position: Int) {
+                wordsSwiped = true
+                binding.ivReloadWords.visibility = View.VISIBLE
                 Log.d("CardCountIssue", "Card swiped left at position: $position")
+                MixpanelHelper.trackEvent("Card Swiped", mapOf("Direction" to "Left"))
                 // Delay to let Koloda update its internal state
                 binding.root.postDelayed({
                     val realCount = swipeAdapter?.getRealItemCount() ?: 0
                     Log.d("CardCountIssue", "After swipe - Real cards remaining: $realCount")
-
-                    // Check if this was the last real card
-                    // Position parameter here is the OLD position before swipe
-                    // If we had N real cards and swiped the last one (position = N),
-                    // then we should have 0 real cards left
                     val wasLastCard = (swipeAdapter?.getRealItemCountBeforeSwipe(position) ?: 0) == 1
 
                     if (wasLastCard) {
@@ -130,7 +150,10 @@ class MainActivity : BaseAdActivity() {
             }
 
             override fun onCardSwipedRight(position: Int) {
+                wordsSwiped = true
+                binding.ivReloadWords.visibility = View.VISIBLE
                 Log.d("CardCountIssue", "Card swiped right at position: $position")
+                MixpanelHelper.trackEvent("Card Swiped", mapOf("Direction" to "Right"))
                 // Same logic as left swipe
                 binding.root.postDelayed({
                     val realCount = swipeAdapter?.getRealItemCount() ?: 0
@@ -153,26 +176,8 @@ class MainActivity : BaseAdActivity() {
 
             override fun onEmptyDeck() {
                 Log.d("CardCountIssue", "Koloda onEmptyDeck called - Ignoring")
-                // We'll handle empty state ourselves in onCardSwipedLeft/Right
-                // Ignore Koloda's onEmptyDeck as it's unreliable with our dummy card
             }
         }
-    }
-
-    private fun handleCardSwipe(position: Int) {
-        binding.root.postDelayed({
-            // After swipe, check if we're at the last card
-            val adapter = swipeAdapter
-            if (adapter != null) {
-                val remainingRealCards = adapter.getRealItemCount()
-                Log.d("CardCountIssue", "After swipe - Remaining real cards: $remainingRealCards")
-
-                // Show empty state only when NO real cards are left
-                if (remainingRealCards == 0) {
-                    showEmptyState()
-                }
-            }
-        }, 300)
     }
 
     private fun updateDeckWithWords(words: List<Any>) {
@@ -190,11 +195,10 @@ class MainActivity : BaseAdActivity() {
             }
 
             val displayList = if (hasSystemWord) wordList.drop(1) else wordList
-            val reversedList = displayList.reversed()
+//            val reversedList = displayList.reversed()
+            swipeAdapter?.updateData(displayList)
 
-            swipeAdapter?.updateData(reversedList)
-
-            if (displayList.isNotEmpty()) {
+            if (wordList.isNotEmpty()) {
                 showCardState()
             }
 
@@ -225,6 +229,7 @@ class MainActivity : BaseAdActivity() {
 
     private fun speakWord(wordText: String) {
         textToSpeech.speak(wordText, TextToSpeech.QUEUE_FLUSH, null, null)
+        MixpanelHelper.trackEvent("TTS Used", mapOf("Word" to wordText))
     }
 
     private fun setupClicks() {
@@ -237,8 +242,12 @@ class MainActivity : BaseAdActivity() {
         binding.btnReview.setOnClickListener {
             startActivity(Intent(this, ReviewActivity::class.java))
         }
+
         binding.ivReloadWords.setOnClickListener {
-            reloadWords()
+            if (wordsSwiped)
+                reloadWords()
+            else
+                Toast.makeText(this,"All the Words are loaded",Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -251,8 +260,9 @@ class MainActivity : BaseAdActivity() {
             } else {
                 swipeAdapter?.clearData()
                 binding.swipeAbleCardView.reloadAdapterData()
-
-                swipeAdapter?.updateData(userWords.reversed())
+                wordsSwiped = false
+                binding.ivReloadWords.visibility = View.GONE
+                swipeAdapter?.updateData(userWords)
                 showCardState()
 
                 binding.root.postDelayed({
@@ -265,12 +275,22 @@ class MainActivity : BaseAdActivity() {
     private fun showCustomMenuPopup() {
         val popupMenu = PopupMenu(this, binding.btnMenu)
         popupMenu.menuInflater.inflate(R.menu.main_menu, popupMenu.menu)
+
+        popupMenu.setOnMenuItemClickListener { item ->
+            if (item?.itemId == R.id.menu_about) {
+                startActivity(Intent(this@MainActivity, AboutActivity::class.java))
+            } else if (item?.itemId == R.id.menu_settings) {
+                startActivity(Intent(this@MainActivity, SettingsActivity::class.java))
+            }
+            true
+        }
         popupMenu.show()
     }
 
     private fun showAddWordDialog() {
         addWordDialog = AddWordDialog(this) { word, meaning, synonyms, antonyms, example, source ->
             wordViewModel.addWord(word, meaning, synonyms, antonyms, example, source) {
+                MixpanelHelper.trackWordAdded(word, source)
                 runOnUiThread {
                     streakViewModel.onWordAdded()
                     wordViewModel.loadWords()
@@ -325,6 +345,7 @@ class MainActivity : BaseAdActivity() {
 
         streakViewModel.streak.observe(this) { streak ->
             binding.txtStreak.text = getString(R.string.streak_days, streak.currentStreak)
+            MixpanelHelper.trackStreakUpdated(streak.currentStreak)
         }
     }
 

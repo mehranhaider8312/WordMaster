@@ -41,10 +41,13 @@ class SwipeAbleWordAdapter(
         onDeckEmpty = listener
     }
 
+    fun setOnCardAnimationListener(listener: (View, () -> Unit) -> Unit) {
+        onCardAnimationListener = listener
+    }
+
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         Log.d("CardCountIssue", "getView($position) called - total items: ${dataList.size}")
 
-        // Handle dummy card at position 0 - create empty view
         if (position == 0) {
             // Return empty view that won't be visible
             return View(parent.context).apply {
@@ -53,7 +56,6 @@ class SwipeAbleWordAdapter(
             }
         }
 
-        // For real cards (position >= 1)
         val holder: WordViewHolder
         val view: View
 
@@ -73,7 +75,6 @@ class SwipeAbleWordAdapter(
             holder = view.tag as WordViewHolder
         }
 
-        // Bind real card data
         holder.bindData(getItem(position), position, onListenClick)
         return view
     }
@@ -81,10 +82,7 @@ class SwipeAbleWordAdapter(
     fun updateData(newData: List<Word>) {
         Log.d("CardCountIssue", "Adapter updateData called with ${newData.size} items")
 
-        // Clear existing data
         dataList.clear()
-
-        // Add dummy card at index 0 if we have any real cards
         if (newData.isNotEmpty()) {
             val dummy = Word(
                 word = "",
@@ -98,8 +96,6 @@ class SwipeAbleWordAdapter(
             )
             dataList.add(dummy)
         }
-
-        // Add all real cards
         dataList.addAll(newData)
 
         notifyDataSetChanged()
@@ -119,23 +115,11 @@ class SwipeAbleWordAdapter(
     }
 
     fun getRealItemCount(): Int {
-        // Return only real cards (excluding dummy at index 0)
         return maxOf(0, dataList.size - 1)
     }
 
     fun getRealItemCountBeforeSwipe(swipedPosition: Int): Int {
-        // Calculate how many real cards were there BEFORE the swipe
-        // swipedPosition is the position that was just swiped
-        // If we have N total items (including dummy), and we swiped at position P,
-        // then before swipe we had (N-1) real cards
-
-        // IMPORTANT: Koloda's position parameter might be 1-based for the visible cards
-        // Let's use the current dataList size to determine
-
         if (dataList.isEmpty()) return 0
-
-        // Before any swipe, total items = dataList.size
-        // Real cards = dataList.size - 1 (minus dummy)
         return maxOf(0, dataList.size - 1)
     }
 
@@ -155,8 +139,6 @@ class SwipeAbleWordAdapter(
     fun getAllWords(): List<Word> {
         return dataList
     }
-
-
 
     class WordViewHolder(
         private val binding: ItemWordCardBinding,
@@ -220,7 +202,7 @@ class SwipeAbleWordAdapter(
         private fun handleMeaningClick(currentWord: Word, cardView: View) {
             val allWords = adapter.getAllWords()
 
-            if (allWords.size < 5) {
+            if (adapter.getRealItemCount() < 5) {
                 Toast.makeText(
                     context,
                     context.getString(R.string.quiz_unlock_requirement),
@@ -264,7 +246,7 @@ class SwipeAbleWordAdapter(
         private fun handleSynonymClick(currentWord: Word, cardView: View) {
             val allWords = adapter.getAllWords()
 
-            if (allWords.size < 5) {
+            if (adapter.getRealItemCount() < 5) {
                 Toast.makeText(
                     context,
                     context.getString(R.string.quiz_unlock_requirement),
@@ -317,7 +299,7 @@ class SwipeAbleWordAdapter(
         private fun handleAntonymClick(currentWord: Word, cardView: View) {
             val allWords = adapter.getAllWords()
 
-            if (allWords.size < 5) {
+            if (adapter.getRealItemCount() < 5) {
                 Toast.makeText(
                     context,
                     context.getString(R.string.quiz_unlock_requirement),
